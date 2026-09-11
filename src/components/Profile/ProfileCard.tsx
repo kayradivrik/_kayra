@@ -144,20 +144,18 @@ const ProfileCard = ({ onOpenContact, onExploreClick, isExpanded }: ProfileCardP
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-10 sm:mt-12 flex flex-col items-center"
+          className="mt-8 sm:mt-10 flex flex-col items-center"
         >
           <button
             onClick={onExploreClick}
-            className="group flex flex-col items-center gap-2 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+            className="p-2 text-zinc-400 hover:text-white transition-colors cursor-pointer active:scale-90"
             aria-label="Toggle content sections"
           >
-            <div className="p-3 rounded-full bg-white/[0.04] border border-white/10 group-hover:border-cyan-400/50 group-hover:bg-white/[0.08] transition-all duration-300 shadow-lg">
-              <ChevronDown
-                className={`w-6 h-6 text-zinc-300 group-hover:text-cyan-400 transition-transform duration-300 ${
-                  isExpanded ? "rotate-180" : "animate-bounce"
-                }`}
-              />
-            </div>
+            <ChevronDown
+              className={`w-7 h-7 stroke-[2] transition-transform duration-300 ${
+                isExpanded ? "rotate-180" : "animate-bounce"
+              }`}
+            />
           </button>
         </motion.div>
       )}
