@@ -120,17 +120,14 @@ export default function ProjectsSection() {
 
   return (
     <section className="w-full max-w-5xl mx-auto px-4 py-16 relative z-20">
-      {/* Header */}
+      {/* Header (Pill badge removed) */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col items-center text-center mb-12"
+        className="flex flex-col items-center text-center mb-10"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/80 text-xs font-mono tracking-wider uppercase mb-3">
-          <span>GITHUB PROJECTS</span>
-        </div>
         <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
           Featured Works
         </h2>
