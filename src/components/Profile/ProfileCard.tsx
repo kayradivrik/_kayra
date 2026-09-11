@@ -3,14 +3,16 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, ChevronDown } from "lucide-react";
 import { MdMailOutline } from "react-icons/md";
 
 interface ProfileCardProps {
   onOpenContact?: () => void;
+  onExploreClick?: () => void;
+  isExpanded?: boolean;
 }
 
-const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
+const ProfileCard = ({ onOpenContact, onExploreClick, isExpanded }: ProfileCardProps) => {
   const [mounted, setMounted] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState<string>("https://github.com/kayradivrik.png");
 
@@ -135,6 +137,30 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
           <span>LinkedIn</span>
         </motion.a>
       </motion.div>
+
+      {/* Down Arrow Toggle Indicator */}
+      {onExploreClick && (
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-10 sm:mt-12 flex flex-col items-center"
+        >
+          <button
+            onClick={onExploreClick}
+            className="group flex flex-col items-center gap-2 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+            aria-label="Toggle content sections"
+          >
+            <div className="p-3 rounded-full bg-white/[0.04] border border-white/10 group-hover:border-cyan-400/50 group-hover:bg-white/[0.08] transition-all duration-300 shadow-lg">
+              <ChevronDown
+                className={`w-6 h-6 text-zinc-300 group-hover:text-cyan-400 transition-transform duration-300 ${
+                  isExpanded ? "rotate-180" : "animate-bounce"
+                }`}
+              />
+            </div>
+          </button>
+        </motion.div>
+      )}
     </motion.div>
   );
 };

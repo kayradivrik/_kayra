@@ -6,9 +6,10 @@ import { Github, Menu, X } from "lucide-react";
 
 interface NavbarProps {
   onOpenContact: () => void;
+  onExpandSections?: () => void;
 }
 
-export default function Navbar({ onOpenContact }: NavbarProps) {
+export default function Navbar({ onOpenContact, onExpandSections }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -22,12 +23,17 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (id !== "hero") {
+      onExpandSections?.();
     }
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 50);
   };
 
   return (
