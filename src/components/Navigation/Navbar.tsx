@@ -99,56 +99,73 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
         </div>
 
         {/* Mobile Hamburger Button */}
-        <button
+        <motion.button
+          whileTap={{ scale: 0.9 }}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-zinc-300 hover:text-white p-1"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-white/15 text-white shadow-lg backdrop-blur-md active:bg-white/10 transition-all duration-300"
           aria-label="Toggle Menu"
         >
-          {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
+          {mobileMenuOpen ? (
+            <X className="w-5 h-5 text-white" />
+          ) : (
+            <Menu className="w-5 h-5 text-white" />
+          )}
+        </motion.button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Glass Drawer Menu */}
       {mobileMenuOpen && (
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-zinc-950/95 border-b border-white/10 px-6 py-6 backdrop-blur-2xl flex flex-col gap-4 text-base font-bold text-zinc-200"
+          initial={{ opacity: 0, y: -10, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -10, scale: 0.98 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="md:hidden mx-4 mt-3 p-5 rounded-2xl bg-zinc-950/95 border border-white/15 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] flex flex-col gap-3"
         >
+          {/* Top subtle cyan accent bar */}
+          <div className="w-10 h-1 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-500 mb-1 opacity-80" />
+
           <button
             onClick={() => scrollToSection("hero")}
-            className="text-left hover:text-cyan-400 py-1"
+            className="flex items-center justify-between py-2.5 px-3.5 rounded-xl text-left text-base font-bold text-zinc-200 hover:text-white hover:bg-white/[0.06] active:bg-white/10 transition-all"
           >
-            Home
-          </button>
-          <button
-            onClick={() => scrollToSection("experience")}
-            className="text-left hover:text-cyan-400 py-1"
-          >
-            Education &amp; Experience
-          </button>
-          <button
-            onClick={() => scrollToSection("projects")}
-            className="text-left hover:text-cyan-400 py-1"
-          >
-            Featured Projects
-          </button>
-          <button
-            onClick={onOpenContact}
-            className="text-left hover:text-cyan-400 py-1"
-          >
-            Contact
+            <span>Home</span>
+            <span className="text-xs font-mono text-cyan-400/80">01</span>
           </button>
 
-          <div className="pt-2 flex justify-start">
+          <button
+            onClick={() => scrollToSection("experience")}
+            className="flex items-center justify-between py-2.5 px-3.5 rounded-xl text-left text-base font-bold text-zinc-200 hover:text-white hover:bg-white/[0.06] active:bg-white/10 transition-all"
+          >
+            <span>Education &amp; Experience</span>
+            <span className="text-xs font-mono text-cyan-400/80">02</span>
+          </button>
+
+          <button
+            onClick={() => scrollToSection("projects")}
+            className="flex items-center justify-between py-2.5 px-3.5 rounded-xl text-left text-base font-bold text-zinc-200 hover:text-white hover:bg-white/[0.06] active:bg-white/10 transition-all"
+          >
+            <span>Featured Projects</span>
+            <span className="text-xs font-mono text-cyan-400/80">03</span>
+          </button>
+
+          <button
+            onClick={onOpenContact}
+            className="flex items-center justify-between py-2.5 px-3.5 rounded-xl text-left text-base font-bold text-zinc-200 hover:text-white hover:bg-white/[0.06] active:bg-white/10 transition-all"
+          >
+            <span>Contact</span>
+            <span className="text-xs font-mono text-cyan-400/80">04</span>
+          </button>
+
+          <div className="pt-3 mt-1 border-t border-white/10 flex items-center justify-between">
+            <span className="text-xs font-mono text-zinc-400">@kayradivrik</span>
             <a
               href="https://github.com/kayradivrik"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-white text-sm font-semibold"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-white text-xs font-semibold hover:bg-white/20 transition-all shadow-md"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-4 h-4 text-white filter drop-shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
               <span>GitHub</span>
             </a>
           </div>
