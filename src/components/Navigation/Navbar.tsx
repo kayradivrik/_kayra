@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Github, Mail, Terminal, Menu, X } from "lucide-react";
 
 interface NavbarProps {
@@ -46,22 +45,13 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
         {/* Brand / Logo */}
         <button
           onClick={() => scrollToSection("hero")}
-          className="flex items-center gap-3 group text-left"
+          className="flex items-center gap-2.5 group text-left"
         >
-          <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-white/20 group-hover:ring-cyan-400 transition-all duration-300">
-            <Image
-              src="/profile.jpg"
-              alt="Sonsuscato"
-              width={36}
-              height={36}
-              className="w-full h-full object-cover"
-            />
-          </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-white text-base tracking-tight leading-none group-hover:text-cyan-300 transition-colors">
+            <span className="font-extrabold text-white text-lg tracking-tight leading-none group-hover:text-cyan-300 transition-colors">
               Sonsuscato
             </span>
-            <span className="text-[10px] font-mono font-medium text-cyan-400/90 tracking-wider">
+            <span className="text-[10px] font-mono font-semibold text-cyan-400/90 tracking-widest mt-1 uppercase">
               KAYRA DİVRİK
             </span>
           </div>

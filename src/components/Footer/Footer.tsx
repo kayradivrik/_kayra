@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Github, Mail, Shield, Terminal, ArrowUp, Lock, CheckCircle2 } from "lucide-react";
 
 interface FooterProps {
@@ -16,24 +15,13 @@ export default function Footer({ onOpenContact }: FooterProps) {
     <footer className="w-full bg-zinc-950/90 border-t border-white/[0.08] relative z-20 text-zinc-400 text-xs backdrop-blur-xl">
       <div className="max-w-5xl mx-auto px-4 py-10 flex flex-col items-center text-center gap-6">
         
-        {/* Brand & Avatar */}
-        <div className="flex items-center gap-3 cursor-pointer group" onClick={scrollToTop}>
-          <div className="w-10 h-10 rounded-full overflow-hidden p-[2px] bg-white/80 group-hover:bg-white transition-all shadow-md">
-            <div className="w-full h-full rounded-full overflow-hidden bg-black">
-              <Image
-                src="/profile.jpg"
-                alt="Sonsuscato"
-                width={40}
-                height={40}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col text-left">
+        {/* Brand */}
+        <div className="flex items-center gap-2.5 cursor-pointer group" onClick={scrollToTop}>
+          <div className="flex flex-col text-center">
             <span className="font-extrabold text-white text-base tracking-tight leading-none group-hover:text-cyan-300 transition-colors">
               Sonsuscato
             </span>
-            <span className="text-[10px] font-mono font-semibold text-cyan-400 tracking-wider mt-0.5">
+            <span className="text-[10px] font-mono font-semibold text-cyan-400 tracking-widest mt-1 uppercase">
               KAYRA DİVRİK
             </span>
           </div>
