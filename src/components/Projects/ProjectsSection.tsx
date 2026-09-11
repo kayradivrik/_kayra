@@ -53,17 +53,17 @@ const FALLBACK_REPOS: Repository[] = [
 ];
 
 const LANGUAGE_COLORS: Record<string, string> = {
-  TypeScript: "bg-blue-500",
-  JavaScript: "bg-yellow-400",
-  Python: "bg-emerald-500",
-  Bash: "bg-green-600",
-  Shell: "bg-emerald-600",
-  Go: "bg-cyan-500",
-  "C++": "bg-pink-500",
-  C: "bg-purple-500",
-  HTML: "bg-orange-500",
-  CSS: "bg-sky-400",
-  Rust: "bg-amber-600",
+  TypeScript: "bg-blue-400",
+  JavaScript: "bg-teal-400",
+  Python: "bg-emerald-400",
+  Bash: "bg-emerald-500",
+  Shell: "bg-teal-500",
+  Go: "bg-cyan-400",
+  "C++": "bg-cyan-500",
+  C: "bg-indigo-400",
+  HTML: "bg-sky-400",
+  CSS: "bg-sky-500",
+  Rust: "bg-teal-300",
 };
 
 export default function ProjectsSection() {
@@ -187,7 +187,7 @@ export default function ProjectsSection() {
                   {/* Stars & Forks */}
                   <div className="flex items-center gap-3 font-mono">
                     <div className="flex items-center gap-1">
-                      <Star className="w-3.5 h-3.5 text-zinc-400 group-hover:text-amber-400 transition-colors" />
+                      <Star className="w-3.5 h-3.5 text-zinc-400 group-hover:text-cyan-400 transition-colors" />
                       <span>{repo.stargazers_count}</span>
                     </div>
                     <div className="flex items-center gap-1">
