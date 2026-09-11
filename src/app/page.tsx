@@ -9,6 +9,8 @@ import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
 import { MdMailOutline } from 'react-icons/md';
 
+import Navbar from '../components/Navigation/Navbar';
+import Footer from '../components/Footer/Footer';
 import ProjectsSection from '../components/Projects/ProjectsSection';
 
 export default function Home() {
@@ -33,10 +35,13 @@ export default function Home() {
       className="min-h-screen flex flex-col relative w-full overflow-x-hidden"
       style={{ backgroundColor: '#000000' }}
     >
+      {/* Sticky High-Contrast Navbar */}
+      <Navbar onOpenContact={() => setIsEmailModalOpen(true)} />
+
       <FogBackground anchor={0} />
 
-      <main className="z-10 relative w-full flex-1 flex flex-col items-center">
-        <div className="w-full min-h-[85dvh] flex flex-col items-center justify-center relative pt-12">
+      <main className="z-10 relative w-full flex-1 flex flex-col items-center pt-16">
+        <div id="hero" className="w-full min-h-[85dvh] flex flex-col items-center justify-center relative pt-8">
           <ProfileCard />
 
           <motion.div
@@ -70,8 +75,13 @@ export default function Home() {
         </div>
 
         {/* Dynamic GitHub Projects Section */}
-        <ProjectsSection />
+        <div id="projects" className="w-full">
+          <ProjectsSection />
+        </div>
       </main>
+
+      {/* High-Contrast Footer */}
+      <Footer onOpenContact={() => setIsEmailModalOpen(true)} />
 
       <EmailModal
         isOpen={isEmailModalOpen}
