@@ -92,7 +92,7 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
         Cybersecurity &amp; Linux Systems Engineer
       </motion.div>
 
-      {/* Animated Tech Stack Badges */}
+      {/* High-Tech Terminal Badges */}
       <motion.div
         initial="hidden"
         animate={mounted ? "show" : "hidden"}
@@ -103,7 +103,7 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
             transition: { staggerChildren: 0.06, delayChildren: 0.35 }
           }
         }}
-        className="flex flex-wrap items-center justify-center gap-2 mb-8 max-w-lg"
+        className="flex flex-wrap items-center justify-center gap-2.5 mb-8 max-w-xl"
       >
         {[
           "C++",
@@ -120,11 +120,11 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
               hidden: { opacity: 0, scale: 0.8, y: 10 },
               show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 350, damping: 22 } }
             }}
-            whileHover={{ scale: 1.08, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 hover:border-cyan-500/50 text-zinc-300 hover:text-white backdrop-blur-md transition-all duration-300 shadow-md cursor-default flex items-center gap-1.5 group"
+            whileHover={{ scale: 1.06, y: -2 }}
+            whileTap={{ scale: 0.96 }}
+            className="px-3.5 py-1.5 text-xs font-mono font-bold rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-400/50 text-zinc-300 hover:text-white backdrop-blur-xl transition-all duration-300 shadow-md cursor-default flex items-center gap-2 group"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80 group-hover:scale-125 group-hover:bg-cyan-300 transition-all duration-300" />
+            <span className="text-cyan-400 font-extrabold group-hover:text-cyan-300 group-hover:translate-x-0.5 transition-all text-[11px]">&gt;_</span>
             <span>{tech}</span>
           </motion.span>
         ))}
