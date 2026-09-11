@@ -70,8 +70,19 @@ const ProfileCard = () => {
             <div>Siber Güvenlik &amp; Linux</div>
           </div>
 
-          {/* Tech Stack Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-2 max-w-md pt-2 px-4">
+          {/* Animated Tech Stack Badges */}
+          <motion.div
+            initial="hidden"
+            animate={mounted ? "show" : "hidden"}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.07, delayChildren: 0.4 }
+              }
+            }}
+            className="flex flex-wrap items-center justify-center gap-2 max-w-md pt-2 px-4"
+          >
             {[
               "C++",
               "Linux",
@@ -83,15 +94,19 @@ const ProfileCard = () => {
             ].map((tech) => (
               <motion.span
                 key={tech}
-                whileHover={{ scale: 1.05, y: -1 }}
-                whileTap={{ scale: 0.96 }}
-                className="px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-500/40 text-zinc-300 hover:text-white backdrop-blur-md transition-all duration-300 shadow-md cursor-default flex items-center gap-1.5"
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8, y: 12 },
+                  show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 350, damping: 22 } }
+                }}
+                whileHover={{ scale: 1.08, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 hover:border-cyan-500/50 text-zinc-300 hover:text-white backdrop-blur-md transition-all duration-300 shadow-md cursor-default flex items-center gap-1.5 group"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80" />
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80 group-hover:scale-125 group-hover:bg-cyan-300 transition-all duration-300" />
                 <span>{tech}</span>
               </motion.span>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </>

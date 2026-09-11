@@ -146,10 +146,11 @@ export default function ProjectsSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={{
-                  hidden: { opacity: 0, y: 25 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  hidden: { opacity: 0, scale: 0.95, y: 30 },
+                  show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 260, damping: 20 } }
                 }}
-                whileHover={{ y: -6, scale: 1.02 }}
+                whileHover={{ y: -6, scale: 1.025 }}
+                whileTap={{ scale: 0.98 }}
                 className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 hover:border-white/30 hover:bg-white/[0.06] transition-all duration-500 shadow-xl overflow-hidden min-h-[220px] w-[82vw] sm:w-[320px] shrink-0 snap-center md:w-auto md:shrink md:snap-align-none"
               >
                 {/* Subtle Ambient Glow on Hover */}
