@@ -63,25 +63,25 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             onClick={() => scrollToSection("hero")}
             className="hover:text-white transition-colors"
           >
-            Ana Sayfa
+            Home
           </button>
           <button
             onClick={() => scrollToSection("experience")}
             className="hover:text-white transition-colors"
           >
-            Eğitim &amp; Yolculuk
+            Education &amp; Experience
           </button>
           <button
             onClick={() => scrollToSection("projects")}
             className="hover:text-white transition-colors"
           >
-            Öne Çıkan Çalışmalar
+            Featured Projects
           </button>
           <button
             onClick={onOpenContact}
             className="hover:text-white transition-colors"
           >
-            İletişim
+            Contact
           </button>
         </nav>
 
@@ -102,7 +102,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-black hover:bg-white/85 text-xs font-bold transition-all active:scale-95 shadow-lg"
           >
             <Mail className="w-3.5 h-3.5" />
-            <span>Bana Ulaş</span>
+            <span>Get in Touch</span>
           </button>
         </div>
 
@@ -128,19 +128,25 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             onClick={() => scrollToSection("hero")}
             className="text-left font-medium hover:text-cyan-400 py-1"
           >
-            Ana Sayfa
+            Home
+          </button>
+          <button
+            onClick={() => scrollToSection("experience")}
+            className="text-left font-medium hover:text-cyan-400 py-1"
+          >
+            Education &amp; Experience
           </button>
           <button
             onClick={() => scrollToSection("projects")}
             className="text-left font-medium hover:text-cyan-400 py-1"
           >
-            Öne Çıkan Çalışmalar
+            Featured Projects
           </button>
           <button
             onClick={onOpenContact}
             className="text-left font-medium hover:text-cyan-400 py-1"
           >
-            İletişim
+            Contact
           </button>
 
           <div className="pt-2 flex flex-col gap-2">
@@ -151,7 +157,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-white text-xs font-semibold"
             >
               <Github className="w-4 h-4" />
-              <span>GitHub Profilini Gör</span>
+              <span>View GitHub Profile</span>
             </a>
             <button
               onClick={() => {
@@ -161,7 +167,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white text-black text-xs font-bold"
             >
               <Mail className="w-4 h-4" />
-              <span>Bana Ulaş</span>
+              <span>Get in Touch</span>
             </button>
           </div>
         </motion.div>

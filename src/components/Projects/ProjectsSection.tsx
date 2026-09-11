@@ -18,7 +18,7 @@ const FALLBACK_REPOS: Repository[] = [
   {
     id: 1,
     name: "network-scanner-toolkit",
-    description: "Ağ tarama, port tespiti ve zafiyet analizi için geliştirilmiş siber güvenlik araç kiti.",
+    description: "Cybersecurity toolkit designed for network scanning, port detection, and vulnerability analysis.",
     html_url: "https://github.com/kayradivrik",
     stargazers_count: 14,
     forks_count: 4,
@@ -29,7 +29,7 @@ const FALLBACK_REPOS: Repository[] = [
   {
     id: 2,
     name: "linux-system-hardening",
-    description: "Linux sunucu güvenlik sıkılaştırma, SSH konfigürasyon ve firewall otomatik betikleri.",
+    description: "Automated Linux server security hardening scripts, SSH configurations, and firewall rules.",
     html_url: "https://github.com/kayradivrik",
     stargazers_count: 9,
     forks_count: 3,
@@ -40,7 +40,7 @@ const FALLBACK_REPOS: Repository[] = [
   {
     id: 3,
     name: "portfolio-website",
-    description: "Next.js, Tailwind CSS ve Framer Motion ile hazırlanmış kişisel portfolyo web sitesi.",
+    description: "Modern developer portfolio website built with Next.js, Tailwind CSS, and Framer Motion.",
     html_url: "https://github.com/kayradivrik",
     stargazers_count: 6,
     forks_count: 1,
@@ -128,15 +128,14 @@ export default function ProjectsSection() {
         transition={{ duration: 0.6 }}
         className="flex flex-col items-center text-center mb-12"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/80 text-xs font-semibold tracking-wider uppercase mb-3">
-
-          <span>GitHub Projeleri</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/80 text-xs font-mono tracking-wider uppercase mb-3">
+          <span>GITHUB PROJECTS</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-          Öne Çıkan Çalışmalar
+          Featured Works
         </h2>
         <p className="mt-2 text-sm sm:text-base text-zinc-400 max-w-lg">
-          GitHub hesabından canlı çekilen son projeler ve açık kaynak kodlar.
+          Live open-source repositories and tools fetched directly from GitHub.
         </p>
       </motion.div>
 
@@ -144,7 +143,7 @@ export default function ProjectsSection() {
       {loading && (
         <div className="flex flex-col items-center justify-center py-16 text-zinc-400 gap-3">
           <Loader2 className="w-8 h-8 animate-spin text-white" />
-          <span className="text-sm font-medium">GitHub projeleri yükleniyor...</span>
+          <span className="text-sm font-medium">Fetching GitHub repositories...</span>
         </div>
       )}
 
@@ -199,7 +198,7 @@ export default function ProjectsSection() {
 
                   {/* Description */}
                   <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed line-clamp-3">
-                    {repo.description || "Proje açıklaması henüz eklenmedi."}
+                    {repo.description || "No description provided."}
                   </p>
                 </div>
 
@@ -278,7 +277,7 @@ export default function ProjectsSection() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] hover:border-white/20 text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white transition-all duration-300 shadow-lg"
         >
-          <span>Tüm Repoları GitHub'da Gör (@kayradivrik)</span>
+          <span>View All Repositories on GitHub (@kayradivrik)</span>
           <ExternalLink className="w-4 h-4" />
         </a>
       </motion.div>

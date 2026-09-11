@@ -83,7 +83,7 @@ const ProfileCard = () => {
           className="flex flex-col items-center justify-center gap-4 mb-6 w-full"
         >
           <div className="text-base md:text-xl text-white/90 font-semibold text-center leading-relaxed tracking-wide">
-            <div>Siber Güvenlik &amp; Linux</div>
+            <div>Cybersecurity &amp; Linux Systems Engineer</div>
           </div>
 
           {/* Animated Tech Stack Badges */}
@@ -103,7 +103,7 @@ const ProfileCard = () => {
               "C++",
               "Linux",
               "Next.js",
-              "Siber Güvenlik",
+              "Cybersecurity",
               "Python",
               "TypeScript",
               "Bash"
