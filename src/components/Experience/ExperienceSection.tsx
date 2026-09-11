@@ -16,7 +16,7 @@ interface JourneyItem {
 const JOURNEY_DATA: JourneyItem[] = [
   {
     id: 1,
-    period: "2024 — Present",
+    period: "2024 — 2026 (Present)",
     isCurrent: true,
     title: "Dogus University",
     subtitle: "Information Security & Technologies",
@@ -71,17 +71,9 @@ export default function ExperienceSection() {
             {/* Header Row */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                    {item.title}
-                  </h3>
-                  {item.isCurrent && (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                      Active
-                    </span>
-                  )}
-                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  {item.title}
+                </h3>
                 <p className="text-xs sm:text-sm font-mono text-cyan-300/90 mt-1">
                   {item.subtitle}
                 </p>
