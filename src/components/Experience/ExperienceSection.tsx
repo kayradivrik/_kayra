@@ -87,7 +87,7 @@ export default function ExperienceSection() {
 
                 <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-400">
                   <Calendar className="w-3.5 h-3.5" />
-                  <span>{item.isCurrent ? "2024 — Günümüz" : "Mezun"}</span>
+                  <span>{item.isCurrent ? "2024 — 2026 (Günümüz)" : "Mezun"}</span>
                 </div>
               </div>
 
