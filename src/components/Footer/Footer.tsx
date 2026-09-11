@@ -127,7 +127,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
 
       </div>
 
-      {/* Bottom Centered Copyright Line (Larger Text) */}
+      { }
       <div className="mt-14 pt-8  text-center text-sm font-medium text-zinc-400">
         &copy; {new Date().getFullYear()} <strong className="text-white font-bold">Sonsuscato.</strong> | All Rights Reserved.
       </div>

@@ -82,53 +82,93 @@ export default function ExperienceSection() {
         </p>
       </motion.div>
 
-      {/* Cards: Full-Width Stack for Maximum Readability */}
-      <div className="flex flex-col gap-6">
-        {JOURNEY_DATA.map((item, idx) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.15 }}
-            className="p-6 sm:p-8 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-500 w-full flex flex-col justify-between shadow-xl"
-          >
-            <div>
-              {/* Header Row */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm sm:text-base font-mono font-semibold text-cyan-400 mt-1">
-                    {item.subtitle}
-                  </p>
+      {/* Swiper Slider on Mobile / Vertical Stack on Desktop */}
+      <div className="relative">
+        <div
+          ref={sliderRef}
+          onScroll={handleScroll}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-1 px-4 -mx-4 scrollbar-none md:flex-col md:space-y-6 md:gap-0 md:overflow-visible md:px-0 md:mx-0 md:pb-0"
+        >
+          {JOURNEY_DATA.map((item, idx) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              className="p-6 sm:p-8 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-500 w-[88vw] sm:w-[380px] shrink-0 snap-center md:w-full md:shrink md:snap-align-none flex flex-col justify-between shadow-xl"
+            >
+              <div>
+                {/* Header Row */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm sm:text-base font-mono font-semibold text-cyan-400 mt-1">
+                      {item.subtitle}
+                    </p>
+                  </div>
+
+                  <div className="text-xs sm:text-sm font-mono text-zinc-300 bg-white/[0.06] border border-white/10 px-3 py-1.5 rounded-xl self-start sm:self-auto shrink-0 font-medium">
+                    {item.period}
+                  </div>
                 </div>
 
-                <div className="text-xs sm:text-sm font-mono text-zinc-300 bg-white/[0.06] border border-white/10 px-3 py-1.5 rounded-xl self-start sm:self-auto shrink-0 font-medium">
-                  {item.period}
-                </div>
+                {/* Description */}
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+                  {item.description}
+                </p>
               </div>
 
-              {/* Description */}
-              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
-                {item.description}
-              </p>
-            </div>
+              {/* Tag Pills */}
+              <div className="mt-5 sm:mt-6 flex flex-wrap gap-2 pt-3 border-t border-white/[0.06]">
+                {item.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 text-xs sm:text-sm font-mono text-zinc-300 bg-white/[0.04] border border-white/10 rounded-lg hover:border-white/20 hover:text-white transition-all duration-300"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-            {/* Tag Pills */}
-            <div className="mt-5 sm:mt-6 flex flex-wrap gap-2 pt-3 border-t border-white/[0.06]">
-              {item.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-xs sm:text-sm font-mono text-zinc-300 bg-white/[0.04] border border-white/10 rounded-lg hover:border-white/20 hover:text-white transition-all duration-300"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+        {/* Mobile Swiper Indicators (< ■ ■ >) */}
+        <div className="flex md:hidden justify-center items-center gap-3 mt-5">
+          <button
+            onClick={() => scroll('left')}
+            className="p-1 text-zinc-400 hover:text-white transition-colors active:scale-95"
+            aria-label="Previous Slide"
+          >
+            <ChevronLeft className="w-5 h-5 stroke-[2.2]" />
+          </button>
+
+          <div className="flex items-center gap-2">
+            {JOURNEY_DATA.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollToCard(idx)}
+                className={`w-3.5 h-3.5 rounded-[5px] transition-all duration-300 ${
+                  activeIndex === idx
+                    ? "bg-white scale-105 shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+                    : "bg-zinc-700/80 hover:bg-zinc-500"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={() => scroll('right')}
+            className="p-1 text-zinc-400 hover:text-white transition-colors active:scale-95"
+            aria-label="Next Slide"
+          >
+            <ChevronRight className="w-5 h-5 stroke-[2.2]" />
+          </button>
+        </div>
       </div>
     </section>
   );
