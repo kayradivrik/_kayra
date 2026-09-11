@@ -123,80 +123,87 @@ export default function ProjectsSection() {
         </div>
       )}
 
-      {/* Projects Grid */}
+      {/* Projects Grid / Mobile Slider */}
       {!loading && (
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0 },
-            show: {
-              opacity: 1,
-              transition: { staggerChildren: 0.1 }
-            }
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {repos.map((repo) => (
-            <motion.a
-              key={repo.id}
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={{
-                hidden: { opacity: 0, y: 25 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-              }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 hover:border-white/30 hover:bg-white/[0.06] transition-all duration-500 shadow-xl overflow-hidden"
-            >
-              {/* Subtle Ambient Glow on Hover */}
-              <div aria-hidden className="absolute -inset-px rounded-2xl bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        <div className="relative">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.1 }
+              }
+            }}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-1 px-4 -mx-4 scrollbar-none md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:mx-0 md:pb-0"
+          >
+            {repos.map((repo) => (
+              <motion.a
+                key={repo.id}
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={{
+                  hidden: { opacity: 0, y: 25 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                }}
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 hover:border-white/30 hover:bg-white/[0.06] transition-all duration-500 shadow-xl overflow-hidden min-h-[220px] w-[82vw] sm:w-[320px] shrink-0 snap-center md:w-auto md:shrink md:snap-align-none"
+              >
+                {/* Subtle Ambient Glow on Hover */}
+                <div aria-hidden className="absolute -inset-px rounded-2xl bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-              <div>
-                {/* Top Bar: Icon & External Link */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-2 rounded-xl bg-white/[0.06] border border-white/10 text-white group-hover:scale-110 transition-transform duration-300">
-                    <FolderGit2 className="w-5 h-5" />
+                <div>
+                  {/* Top Bar: Icon & External Link */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-2 rounded-xl bg-white/[0.06] border border-white/10 text-white group-hover:scale-110 transition-transform duration-300">
+                      <FolderGit2 className="w-5 h-5" />
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
                   </div>
-                  <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+
+                  {/* Repo Title */}
+                  <h3 className="text-lg font-bold text-white group-hover:text-white transition-colors tracking-tight line-clamp-1">
+                    {repo.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed line-clamp-3">
+                    {repo.description || "Proje açıklaması henüz eklenmedi."}
+                  </p>
                 </div>
 
-                {/* Repo Title */}
-                <h3 className="text-lg font-bold text-white group-hover:text-white transition-colors tracking-tight line-clamp-1">
-                  {repo.name}
-                </h3>
-
-                {/* Description */}
-                <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed line-clamp-3">
-                  {repo.description || "Proje açıklaması henüz eklenmedi."}
-                </p>
-              </div>
-
-              {/* Bottom Metadata Bar */}
-              <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-zinc-400">
-                {/* Language Tag */}
-                <div className="flex items-center gap-2">
-                  <span className={`w-2.5 h-2.5 rounded-full ${repo.language ? LANGUAGE_COLORS[repo.language] || "bg-zinc-400" : "bg-zinc-400"}`} />
-                  <span className="font-medium text-zinc-300">{repo.language || "Code"}</span>
-                </div>
-
-                {/* Stars & Forks */}
-                <div className="flex items-center gap-3 font-mono">
-                  <div className="flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5 text-zinc-400 group-hover:text-amber-400 transition-colors" />
-                    <span>{repo.stargazers_count}</span>
+                {/* Bottom Metadata Bar */}
+                <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-zinc-400">
+                  {/* Language Tag */}
+                  <div className="flex items-center gap-2">
+                    <span className={`w-2.5 h-2.5 rounded-full ${repo.language ? LANGUAGE_COLORS[repo.language] || "bg-zinc-400" : "bg-zinc-400"}`} />
+                    <span className="font-medium text-zinc-300">{repo.language || "Code"}</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <GitFork className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>{repo.forks_count}</span>
+
+                  {/* Stars & Forks */}
+                  <div className="flex items-center gap-3 font-mono">
+                    <div className="flex items-center gap-1">
+                      <Star className="w-3.5 h-3.5 text-zinc-400 group-hover:text-amber-400 transition-colors" />
+                      <span>{repo.stargazers_count}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <GitFork className="w-3.5 h-3.5 text-zinc-400" />
+                      <span>{repo.forks_count}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.a>
-          ))}
-        </motion.div>
+              </motion.a>
+            ))}
+          </motion.div>
+
+          {/* Mobile Swipe Hint */}
+          <div className="flex md:hidden justify-center items-center gap-1.5 mt-2 text-[11px] font-mono text-zinc-500">
+            <span>← Kaydırmak için sürükleyin →</span>
+          </div>
+        </div>
       )}
 
       {/* Bottom Link to GitHub Profile */}

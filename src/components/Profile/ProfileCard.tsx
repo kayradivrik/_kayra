@@ -73,21 +73,22 @@ const ProfileCard = () => {
           {/* Tech Stack Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2 max-w-md pt-2 px-4">
             {[
-              { name: "C++", color: "from-blue-500/20 to-indigo-500/20 border-blue-500/30 text-blue-300" },
-              { name: "Linux", color: "from-amber-500/20 to-yellow-500/20 border-amber-500/30 text-amber-300" },
-              { name: "Next.js", color: "from-zinc-500/20 to-white/10 border-white/20 text-white" },
-              { name: "Siber Güvenlik", color: "from-red-500/20 to-rose-500/20 border-red-500/30 text-red-300" },
-              { name: "Python", color: "from-emerald-500/20 to-teal-500/20 border-emerald-500/30 text-emerald-300" },
-              { name: "TypeScript", color: "from-sky-500/20 to-blue-500/20 border-sky-500/30 text-sky-300" },
-              { name: "Bash", color: "from-green-500/20 to-emerald-500/20 border-green-500/30 text-green-300" },
+              "C++",
+              "Linux",
+              "Next.js",
+              "Siber Güvenlik",
+              "Python",
+              "TypeScript",
+              "Bash"
             ].map((tech) => (
               <motion.span
-                key={tech.name}
-                whileHover={{ scale: 1.06, y: -2 }}
+                key={tech}
+                whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.96 }}
-                className={`px-3 py-1 text-xs sm:text-sm font-semibold rounded-full bg-gradient-to-r ${tech.color} border backdrop-blur-md transition-all shadow-md cursor-default`}
+                className="px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-500/40 text-zinc-300 hover:text-white backdrop-blur-md transition-all duration-300 shadow-md cursor-default flex items-center gap-1.5"
               >
-                {tech.name}
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80" />
+                <span>{tech}</span>
               </motion.span>
             ))}
           </div>
