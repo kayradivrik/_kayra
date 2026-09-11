@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Star, GitFork, ExternalLink, FolderGit2, Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, GitFork, ExternalLink, Github, Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Repository {
   id: number;
@@ -120,20 +120,65 @@ export default function ProjectsSection() {
 
   return (
     <section className="w-full max-w-5xl mx-auto px-4 py-16 relative z-20">
-      {/* Header (Pill badge removed) */}
+      {/* Header with Slider Controls on the Right */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col items-center text-center mb-10"
+        className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-          Featured Works
-        </h2>
-        <p className="mt-2 text-sm sm:text-base text-zinc-400 max-w-lg">
-          Live open-source repositories and tools fetched directly from GitHub.
-        </p>
+        <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            Featured Works
+          </h2>
+          <p className="mt-2 text-sm sm:text-base text-zinc-400 max-w-lg">
+            Live open-source repositories and tools fetched directly from GitHub.
+          </p>
+        </div>
+
+        {/* NetworkChuck Style Slider Controls (< ■ ■ ■ >) on Header Right */}
+        {!loading && (
+          <div className="flex items-center gap-3 self-center sm:self-end shrink-0">
+            <button
+              onClick={() => scroll('left')}
+              className="p-1 text-zinc-400 hover:text-white transition-colors active:scale-95"
+              aria-label="Previous Slide"
+            >
+              <ChevronLeft className="w-6 h-6 stroke-[2.2]" />
+            </button>
+
+            {/* 3 Rounded Square Indicators */}
+            <div className="flex items-center gap-2">
+              {[0, 1, 2].map((dotIdx) => {
+                const targetIndex = repos.length > 3 ? dotIdx * 2 : dotIdx;
+                const isSelected = repos.length > 3 
+                  ? Math.floor(activeIndex / 2) === dotIdx
+                  : activeIndex === dotIdx;
+                return (
+                  <button
+                    key={dotIdx}
+                    onClick={() => scrollToRepo(targetIndex)}
+                    className={`w-3.5 h-3.5 rounded-[5px] transition-all duration-300 ${
+                      isSelected
+                        ? "bg-white scale-105 shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+                        : "bg-zinc-700/90 hover:bg-zinc-500"
+                    }`}
+                    aria-label={`Go to slide ${dotIdx + 1}`}
+                  />
+                );
+              })}
+            </div>
+
+            <button
+              onClick={() => scroll('right')}
+              className="p-1 text-zinc-400 hover:text-white transition-colors active:scale-95"
+              aria-label="Next Slide"
+            >
+              <ChevronRight className="w-6 h-6 stroke-[2.2]" />
+            </button>
+          </div>
+        )}
       </motion.div>
 
       {/* Loading state */}
@@ -183,7 +228,7 @@ export default function ProjectsSection() {
                   {/* Top Bar: Icon & External Link */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="p-2 rounded-xl bg-white/[0.06] border border-white/10 text-white group-hover:scale-110 transition-transform duration-300">
-                      <FolderGit2 className="w-5 h-5" />
+                      <Github className="w-5 h-5" />
                     </div>
                     <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
                   </div>
@@ -222,41 +267,6 @@ export default function ProjectsSection() {
               </motion.a>
             ))}
           </motion.div>
-
-          {/* NetworkChuck Style Slider Controls (< ■ ■ ■ >) */}
-          <div className="flex justify-center items-center gap-4 mt-6">
-            <button
-              onClick={() => scroll('left')}
-              className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/[0.08] transition-all active:scale-95"
-              aria-label="Previous Slide"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            {/* Dot Indicators */}
-            <div className="flex items-center gap-2">
-              {repos.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => scrollToRepo(idx)}
-                  className={`w-2.5 h-2.5 rounded-sm transition-all duration-300 ${
-                    activeIndex === idx
-                      ? "bg-white scale-110 shadow-[0_0_10px_rgba(255,255,255,0.8)]"
-                      : "bg-zinc-700/80 hover:bg-zinc-500"
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={() => scroll('right')}
-              className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/[0.08] transition-all active:scale-95"
-              aria-label="Next Slide"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
         </div>
       )}
 
