@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   description: "Sonsuscato (Kayra Divrik) Portfolio Website.",
   icons: {
     icon: [
-      { url: "/favicon.png?v=5", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.png?v=6", type: "image/png", sizes: "192x192" },
     ],
-    apple: "/apple-touch-icon.png?v=5",
+    apple: "/apple-touch-icon.png?v=6",
   },
 };
 
