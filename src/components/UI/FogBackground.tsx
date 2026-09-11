@@ -60,18 +60,18 @@ const FogBackground = ({ anchor = 0 }: FogBackgroundProps) => {
       className="fixed inset-0 pointer-events-none select-none overflow-hidden"
       style={{ zIndex: 0 }}
     >
-      {/* Top Cyan/Blue Cyber Spot - Hidden on Mobile to prevent background haze */}
-      <div className="hidden sm:block absolute -top-[10%] left-[15%] w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full bg-cyan-500/[0.08] blur-[130px]" />
+      {/* Top Cyan/Blue Cyber Spot - Faded on Mobile */}
+      <div className="absolute -top-[10%] left-[15%] w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full bg-cyan-500/[0.04] sm:bg-cyan-500/[0.08] blur-[130px]" />
 
-      {/* Bottom Purple/Indigo Cyber Spot - Hidden on Mobile */}
-      <div className="hidden sm:block absolute -bottom-[10%] right-[10%] w-[500px] sm:w-[750px] h-[500px] sm:h-[750px] rounded-full bg-indigo-600/[0.08] blur-[140px]" />
+      {/* Bottom Purple/Indigo Cyber Spot - Faded on Mobile */}
+      <div className="absolute -bottom-[10%] right-[10%] w-[500px] sm:w-[750px] h-[500px] sm:h-[750px] rounded-full bg-indigo-600/[0.03] sm:bg-indigo-600/[0.08] blur-[140px]" />
 
-      {/* Center White Ambient Spotlight - Hidden on Mobile */}
-      <div className="hidden sm:block absolute top-[20%] left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[400px] rounded-full bg-white/[0.04] blur-[120px]" />
+      {/* Center White Ambient Spotlight - Faded on Mobile */}
+      <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[400px] rounded-full bg-white/[0.01] sm:bg-white/[0.04] blur-[120px]" />
 
-      {/* Dynamic Radial Gradients - Hidden on Mobile for pure dark contrast */}
+      {/* Dynamic Radial Gradients */}
       <div
-        className="hidden sm:block absolute inset-0 transition-opacity duration-[900ms] ease-out"
+        className="absolute inset-0 transition-opacity duration-[900ms] ease-out opacity-20 sm:opacity-100"
         style={{
           opacity: 1 - anchor,
           background:
@@ -79,7 +79,7 @@ const FogBackground = ({ anchor = 0 }: FogBackgroundProps) => {
         }}
       />
       <div
-        className="hidden sm:block absolute inset-0 transition-opacity duration-[900ms] ease-out"
+        className="absolute inset-0 transition-opacity duration-[900ms] ease-out opacity-20 sm:opacity-100"
         style={{
           opacity: anchor,
           background:
@@ -87,7 +87,7 @@ const FogBackground = ({ anchor = 0 }: FogBackgroundProps) => {
         }}
       />
       {shaderEnabled && (
-        <canvas ref={canvasRef} className="hidden sm:block absolute inset-0 w-full h-full" />
+        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block opacity-30 sm:opacity-100" />
       )}
     </div>
   );

@@ -23,10 +23,10 @@ export default function Footer({ onOpenContact }: FooterProps) {
   return (
     <footer className="w-full bg-[#0d0d0d] border-t border-white/10 relative z-20 text-white pt-16 pb-12 px-6 sm:px-12">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-        
+
         {/* Left Column: Brand Text (No logo icon, Large Bold Font) */}
         <div className="flex flex-col items-start gap-2">
-          <h3 
+          <h3
             onClick={scrollToTop}
             className="text-3xl sm:text-4xl font-black tracking-tight text-white cursor-pointer hover:text-cyan-400 transition-colors"
           >
@@ -47,32 +47,32 @@ export default function Footer({ onOpenContact }: FooterProps) {
           </h4>
           <ul className="flex flex-col gap-3 text-sm sm:text-base font-semibold text-zinc-300">
             <li>
-              <button 
-                onClick={() => scrollToSection("hero")} 
+              <button
+                onClick={() => scrollToSection("hero")}
                 className="hover:text-white transition-colors text-left"
               >
                 Home
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => scrollToSection("experience")} 
+              <button
+                onClick={() => scrollToSection("experience")}
                 className="hover:text-white transition-colors text-left"
               >
                 Education &amp; Experience
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => scrollToSection("projects")} 
+              <button
+                onClick={() => scrollToSection("projects")}
                 className="hover:text-white transition-colors text-left"
               >
                 Featured Projects
               </button>
             </li>
             <li>
-              <button 
-                onClick={onOpenContact} 
+              <button
+                onClick={onOpenContact}
                 className="hover:text-white transition-colors text-left"
               >
                 Contact
@@ -128,7 +128,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
       </div>
 
       {/* Bottom Centered Copyright Line (Larger Text) */}
-      <div className="mt-14 pt-8 border-t border-white/10 text-center text-sm font-medium text-zinc-400">
+      <div className="mt-14 pt-8  text-center text-sm font-medium text-zinc-400">
         &copy; {new Date().getFullYear()} <strong className="text-white font-bold">Sonsuscato.</strong> | All Rights Reserved.
       </div>
     </footer>
