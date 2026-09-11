@@ -42,37 +42,8 @@ export default function Home() {
       <FogBackground anchor={0} />
 
       <main className="z-10 relative w-full flex-1 flex flex-col items-center pt-16">
-        <div id="hero" className="w-full min-h-[85dvh] flex flex-col items-center justify-center relative pt-8">
-          <ProfileCard />
-
-          <motion.div
-            initial={false}
-            animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-            className="mt-8 flex items-center gap-5 z-20"
-          >
-            <motion.button
-              onClick={() => setIsEmailModalOpen(true)}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-3 px-8 py-3 bg-white/[0.06] border border-white/20 hover:border-white/50 rounded-2xl text-white hover:bg-white/[0.09] transition-all duration-500 ease-out shadow-2xl backdrop-blur-md"
-            >
-              <MdMailOutline size={20} />
-              <span className="text-base font-bold tracking-tight">Contact</span>
-            </motion.button>
-
-            <motion.a
-              href="https://github.com/kayradivrik"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-3 px-8 py-3 bg-white/[0.06] border border-white/20 hover:border-white/50 rounded-2xl text-white hover:bg-white/[0.09] transition-all duration-500 ease-out shadow-2xl backdrop-blur-md"
-            >
-              <Github size={20} />
-              <span className="text-base font-bold tracking-tight">GitHub</span>
-            </motion.a>
-          </motion.div>
+        <div id="hero" className="w-full min-h-[75dvh] flex flex-col items-center justify-center relative py-12">
+          <ProfileCard onOpenContact={() => setIsEmailModalOpen(true)} />
         </div>
 
         {/* Education & Journey Section */}

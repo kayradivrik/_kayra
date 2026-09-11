@@ -102,9 +102,9 @@ export default function Footer({ onOpenContact }: FooterProps) {
               target="_blank"
               rel="noopener noreferrer"
               title="Instagram"
-              className="text-white hover:scale-110 transition-all duration-200 group"
+              className="text-white hover:text-cyan-400 hover:scale-110 transition-all duration-200"
             >
-              <Instagram className="w-7 h-7 text-pink-400 group-hover:text-pink-300 filter drop-shadow-[0_0_10px_rgba(244,114,182,0.95)]" />
+              <Instagram className="w-7 h-7 text-white filter drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
             </a>
 
             <button

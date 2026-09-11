@@ -101,9 +101,9 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             href="https://instagram.com/kayradivrik"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-pink-500/40 text-xs font-semibold text-white transition-all backdrop-blur-md group"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-white/30 text-xs font-semibold text-white transition-all backdrop-blur-md"
           >
-            <Instagram className="w-3.5 h-3.5 text-pink-400 group-hover:text-pink-300 filter drop-shadow-[0_0_6px_rgba(244,114,182,0.8)]" />
+            <Instagram className="w-3.5 h-3.5 text-white" />
             <span>Instagram</span>
           </a>
 
