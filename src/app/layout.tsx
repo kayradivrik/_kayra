@@ -9,8 +9,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Kayra Divrik",
-  description: "Kayra Portfolio Website.",
+  title: "Sonsuscato | Kayra Divrik",
+  description: "Sonsuscato (Kayra Divrik) Portfolio Website.",
   icons: {
     icon: [
       { url: "/favicon.png?v=5", type: "image/png", sizes: "192x192" },

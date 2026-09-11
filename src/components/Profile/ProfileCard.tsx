@@ -54,9 +54,10 @@ const ProfileCard = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative mb-3"
+          className="relative mb-3 flex flex-col items-center"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Kayra Divrik</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">Sonsuscato</h1>
+          <span className="text-sm font-semibold text-cyan-400 font-mono tracking-widest uppercase mt-1">Kayra Divrik</span>
         </motion.div>
 
         <motion.div
