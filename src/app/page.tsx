@@ -67,7 +67,7 @@ export default function Home() {
           />
         </div>
 
-        {/* Expandable Lower Content Sections */}
+        {/* Expandable Lower Content Sections & Footer */}
         <AnimatePresence>
           {sectionsExpanded && (
             <motion.div
@@ -86,13 +86,13 @@ export default function Home() {
               <div id="projects" className="w-full">
                 <ProjectsSection />
               </div>
+
+              {/* High-Contrast Footer */}
+              <Footer onOpenContact={() => setIsEmailModalOpen(true)} />
             </motion.div>
           )}
         </AnimatePresence>
       </main>
-
-      {/* High-Contrast Footer */}
-      <Footer onOpenContact={() => setIsEmailModalOpen(true)} />
 
       <EmailModal
         isOpen={isEmailModalOpen}
