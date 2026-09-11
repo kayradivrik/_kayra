@@ -63,10 +63,32 @@ const ProfileCard = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center justify-center gap-2 mb-10 w-full"
+          className="flex flex-col items-center justify-center gap-4 mb-6 w-full"
         >
           <div className="text-base md:text-xl text-white/90 font-semibold text-center leading-relaxed tracking-wide">
             <div>Siber Güvenlik &amp; Linux</div>
+          </div>
+
+          {/* Tech Stack Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-2 max-w-md pt-2 px-4">
+            {[
+              { name: "C++", color: "from-blue-500/20 to-indigo-500/20 border-blue-500/30 text-blue-300" },
+              { name: "Linux", color: "from-amber-500/20 to-yellow-500/20 border-amber-500/30 text-amber-300" },
+              { name: "Next.js", color: "from-zinc-500/20 to-white/10 border-white/20 text-white" },
+              { name: "Siber Güvenlik", color: "from-red-500/20 to-rose-500/20 border-red-500/30 text-red-300" },
+              { name: "Python", color: "from-emerald-500/20 to-teal-500/20 border-emerald-500/30 text-emerald-300" },
+              { name: "TypeScript", color: "from-sky-500/20 to-blue-500/20 border-sky-500/30 text-sky-300" },
+              { name: "Bash", color: "from-green-500/20 to-emerald-500/20 border-green-500/30 text-green-300" },
+            ].map((tech) => (
+              <motion.span
+                key={tech.name}
+                whileHover={{ scale: 1.06, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className={`px-3 py-1 text-xs sm:text-sm font-semibold rounded-full bg-gradient-to-r ${tech.color} border backdrop-blur-md transition-all shadow-md cursor-default`}
+              >
+                {tech.name}
+              </motion.span>
+            ))}
           </div>
         </motion.div>
       </motion.div>
