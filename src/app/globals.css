@@ -14,16 +14,10 @@
 
 @layer base {
   html {
-    --site-zoom: 0.9;
     font-size: 100%;
-    zoom: var(--site-zoom);
     background-color: #000000;
-  }
-
-  @media (max-width: 768px) {
-    html {
-      --site-zoom: 0.81;
-    }
+    overflow-x: hidden;
+    width: 100%;
   }
 
   * {
@@ -36,12 +30,9 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  @media (max-width: 768px) {
-    body {
-      overflow-y: auto;
-    }
+    overflow-x: hidden;
+    width: 100%;
+    min-h-screen: 100vh;
   }
 
   a,

@@ -97,7 +97,7 @@ export default function Home() {
               animate={{ opacity: 1, height: "auto", y: 0 }}
               exit={{ opacity: 0, height: 0, y: 40 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-full flex flex-col items-center overflow-hidden"
+              className="w-full flex flex-col items-center"
             >
               {/* Education & Journey Section */}
               <div id="experience" className="w-full">
