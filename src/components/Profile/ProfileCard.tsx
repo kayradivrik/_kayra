@@ -37,7 +37,7 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
       initial={false}
       animate={mounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-full max-w-3xl mx-auto px-4 z-30 pt-12 md:pt-16 flex flex-col items-center text-center"
+      className="w-full max-w-3xl mx-auto px-4 z-30 pt-16 sm:pt-20 md:pt-24 flex flex-col items-center text-center"
     >
       {/* Profile Image Container */}
       <motion.div
@@ -53,13 +53,13 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
           className="absolute -inset-4 sm:-inset-6 rounded-full bg-gradient-to-tr from-white/20 via-white/10 to-transparent blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
         />
 
-        <div className="relative w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full p-[3px] bg-gradient-to-b from-white/40 via-white/15 to-white/5 shadow-[0_0_50px_rgba(255,255,255,0.18)] group-hover:shadow-[0_0_70px_rgba(255,255,255,0.3)] transition-all duration-700">
+        <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full p-[3px] bg-gradient-to-b from-white/40 via-white/15 to-white/5 shadow-[0_0_50px_rgba(255,255,255,0.18)] group-hover:shadow-[0_0_70px_rgba(255,255,255,0.3)] transition-all duration-700">
           <div className="w-full h-full rounded-full overflow-hidden bg-black relative">
             <Image
               src={avatarUrl}
               alt="Sonsuscato (Kayra Divrik)"
-              width={240}
-              height={240}
+              width={280}
+              height={280}
               priority
               unoptimized
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -73,12 +73,12 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="flex flex-col items-center mb-2"
+        className="flex flex-col items-center mb-3"
       >
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-5xl sm:text-6xl font-extrabold text-white tracking-tight">
           Sonsuscato
         </h1>
-        <span className="text-xs sm:text-sm font-semibold text-cyan-400 font-mono tracking-widest uppercase mt-1">
+        <span className="text-sm sm:text-base font-semibold text-cyan-400 font-mono tracking-widest uppercase mt-1.5">
           Kayra Divrik
         </span>
       </motion.div>
@@ -87,28 +87,26 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="text-base sm:text-lg text-zinc-300 font-medium leading-relaxed tracking-wide mb-6"
+        className="text-lg sm:text-xl text-zinc-300 font-medium leading-relaxed tracking-wide mb-8 max-w-lg"
       >
         Cybersecurity &amp; Linux Systems Engineer
       </motion.div>
-
-
 
       {/* Action Buttons Row */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
-        className="flex flex-row items-center justify-center gap-4 sm:gap-5"
+        className="flex flex-row items-center justify-center gap-4 sm:gap-6"
       >
         {onOpenContact && (
           <motion.button
             onClick={onOpenContact}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-3 px-7 py-3 bg-white text-black font-bold rounded-2xl text-sm sm:text-base hover:bg-white/90 transition-all duration-300 shadow-2xl"
+            className="flex items-center gap-3 px-8 py-3.5 sm:px-9 sm:py-4 bg-white text-black font-bold rounded-2xl text-base sm:text-lg hover:bg-white/90 transition-all duration-300 shadow-2xl"
           >
-            <MdMailOutline size={20} />
+            <MdMailOutline size={22} />
             <span>Contact</span>
           </motion.button>
         )}
@@ -119,9 +117,9 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
           rel="noopener noreferrer"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="flex items-center gap-3 px-7 py-3 bg-white/[0.06] border border-white/20 hover:border-white/50 rounded-2xl text-white hover:bg-white/[0.09] transition-all duration-300 text-sm sm:text-base font-semibold backdrop-blur-md shadow-2xl"
+          className="flex items-center gap-3 px-8 py-3.5 sm:px-9 sm:py-4 bg-white/[0.06] border border-white/20 hover:border-white/50 rounded-2xl text-white hover:bg-white/[0.09] transition-all duration-300 text-base sm:text-lg font-semibold backdrop-blur-md shadow-2xl"
         >
-          <Github size={20} />
+          <Github size={22} />
           <span>GitHub</span>
         </motion.a>
       </motion.div>
