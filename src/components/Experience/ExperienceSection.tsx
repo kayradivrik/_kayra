@@ -82,93 +82,53 @@ export default function ExperienceSection() {
         </p>
       </motion.div>
 
-      {/* Cards: Cool Mobile Horizontal Slider / Desktop Vertical Stack */}
-      <div className="relative">
-        <div
-          ref={sliderRef}
-          onScroll={handleScroll}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-1 px-4 -mx-4 scrollbar-none md:flex-col md:space-y-6 md:gap-0 md:overflow-visible md:px-0 md:mx-0 md:pb-0"
-        >
-          {JOURNEY_DATA.map((item, idx) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="p-5 sm:p-8 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04] transition-all duration-500 w-[85vw] sm:w-[340px] shrink-0 snap-center md:w-full md:shrink md:snap-align-none flex flex-col justify-between"
-            >
-              <div>
-                {/* Header Row */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  <div>
-                    <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-mono text-cyan-300/90 mt-0.5">
-                      {item.subtitle}
-                    </p>
-                  </div>
-
-                  <div className="text-[11px] sm:text-xs font-mono text-zinc-400 bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-lg self-start sm:self-auto shrink-0 mt-1 sm:mt-0">
-                    {item.period}
-                  </div>
+      {/* Cards: Full-Width Stack for Maximum Readability */}
+      <div className="flex flex-col gap-6">
+        {JOURNEY_DATA.map((item, idx) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: idx * 0.15 }}
+            className="p-6 sm:p-8 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-500 w-full flex flex-col justify-between shadow-xl"
+          >
+            <div>
+              {/* Header Row */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm sm:text-base font-mono font-semibold text-cyan-400 mt-1">
+                    {item.subtitle}
+                  </p>
                 </div>
 
-                {/* Description */}
-                <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
-                  {item.description}
-                </p>
+                <div className="text-xs sm:text-sm font-mono text-zinc-300 bg-white/[0.06] border border-white/10 px-3 py-1.5 rounded-xl self-start sm:self-auto shrink-0 font-medium">
+                  {item.period}
+                </div>
               </div>
 
-              {/* Minimal Tag Pills */}
-              <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5 sm:gap-2 pt-2">
-                {item.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-[11px] font-mono text-zinc-400 bg-white/[0.03] border border-white/[0.08] rounded-md hover:border-white/20 hover:text-zinc-200 transition-all duration-300"
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              {/* Description */}
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+                {item.description}
+              </p>
+            </div>
 
-        {/* Mobile Slider Indicators (< ■ ■ >) */}
-        <div className="flex md:hidden justify-center items-center gap-3 mt-4">
-          <button
-            onClick={() => scroll('left')}
-            className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-white/[0.08] transition-all active:scale-95"
-            aria-label="Previous Education Card"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-
-          <div className="flex items-center gap-2">
-            {JOURNEY_DATA.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => scrollToCard(idx)}
-                className={`w-2.5 h-2.5 rounded-sm transition-all duration-300 ${
-                  activeIndex === idx
-                    ? "bg-white scale-110 shadow-[0_0_10px_rgba(255,255,255,0.8)]"
-                    : "bg-zinc-700/80 hover:bg-zinc-500"
-                }`}
-                aria-label={`Go to card ${idx + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={() => scroll('right')}
-            className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-white/[0.08] transition-all active:scale-95"
-            aria-label="Next Education Card"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
+            {/* Tag Pills */}
+            <div className="mt-5 sm:mt-6 flex flex-wrap gap-2 pt-3 border-t border-white/[0.06]">
+              {item.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 text-xs sm:text-sm font-mono text-zinc-300 bg-white/[0.04] border border-white/10 rounded-lg hover:border-white/20 hover:text-white transition-all duration-300"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
