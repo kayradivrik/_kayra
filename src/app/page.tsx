@@ -11,6 +11,7 @@ import { MdMailOutline } from 'react-icons/md';
 
 import Navbar from '../components/Navigation/Navbar';
 import Footer from '../components/Footer/Footer';
+import ExperienceSection from '../components/Experience/ExperienceSection';
 import ProjectsSection from '../components/Projects/ProjectsSection';
 
 export default function Home() {
@@ -72,6 +73,11 @@ export default function Home() {
               <span className="text-base font-bold tracking-tight">GitHub</span>
             </motion.a>
           </motion.div>
+        </div>
+
+        {/* Education & Journey Section */}
+        <div id="experience" className="w-full">
+          <ExperienceSection />
         </div>
 
         {/* Dynamic GitHub Projects Section */}

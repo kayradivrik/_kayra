@@ -66,6 +66,12 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             Ana Sayfa
           </button>
           <button
+            onClick={() => scrollToSection("experience")}
+            className="hover:text-white transition-colors"
+          >
+            Eğitim &amp; Yolculuk
+          </button>
+          <button
             onClick={() => scrollToSection("projects")}
             className="hover:text-white transition-colors"
           >
