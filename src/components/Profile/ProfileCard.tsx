@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Github } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { MdMailOutline } from "react-icons/md";
 
 interface ProfileCardProps {
@@ -97,16 +97,16 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
-        className="flex flex-row items-center justify-center gap-4 sm:gap-6"
+        className="flex flex-row items-center justify-center gap-3 sm:gap-4 flex-wrap"
       >
         {onOpenContact && (
           <motion.button
             onClick={onOpenContact}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-3 px-8 py-3.5 sm:px-9 sm:py-4 bg-white text-black font-bold rounded-2xl text-base sm:text-lg hover:bg-white/90 transition-all duration-300 shadow-2xl"
+            className="flex items-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 bg-white text-black font-bold rounded-2xl text-sm sm:text-base hover:bg-white/90 transition-all duration-300 shadow-2xl"
           >
-            <MdMailOutline size={22} />
+            <MdMailOutline size={20} />
             <span>Contact</span>
           </motion.button>
         )}
@@ -117,10 +117,22 @@ const ProfileCard = ({ onOpenContact }: ProfileCardProps) => {
           rel="noopener noreferrer"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="flex items-center gap-3 px-8 py-3.5 sm:px-9 sm:py-4 bg-white/[0.06] border border-white/20 hover:border-white/50 rounded-2xl text-white hover:bg-white/[0.09] transition-all duration-300 text-base sm:text-lg font-semibold backdrop-blur-md shadow-2xl"
+          className="flex items-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 bg-white/[0.06] border border-white/20 hover:border-white/50 rounded-2xl text-white hover:bg-white/[0.09] transition-all duration-300 text-sm sm:text-base font-semibold backdrop-blur-md shadow-2xl"
         >
-          <Github size={22} />
+          <Github size={20} />
           <span>GitHub</span>
+        </motion.a>
+
+        <motion.a
+          href="https://linkedin.com/in/kayradivrik"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 bg-white/[0.06] border border-white/20 hover:border-white/50 rounded-2xl text-white hover:bg-white/[0.09] transition-all duration-300 text-sm sm:text-base font-semibold backdrop-blur-md shadow-2xl"
+        >
+          <Linkedin size={20} />
+          <span>LinkedIn</span>
         </motion.a>
       </motion.div>
     </motion.div>

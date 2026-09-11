@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Mail, ArrowUp, Instagram } from "lucide-react";
+import { Github, Mail, ArrowUp, Instagram, Linkedin } from "lucide-react";
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -98,6 +98,16 @@ export default function Footer({ onOpenContact }: FooterProps) {
             </a>
 
             <a
+              href="https://linkedin.com/in/kayradivrik"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="LinkedIn"
+              className="text-white hover:text-cyan-400 hover:scale-110 transition-all duration-200"
+            >
+              <Linkedin className="w-7 h-7 text-white filter drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
+            </a>
+
+            <a
               href="https://instagram.com/kayradivrik"
               target="_blank"
               rel="noopener noreferrer"
@@ -127,8 +137,8 @@ export default function Footer({ onOpenContact }: FooterProps) {
 
       </div>
 
-      { }
-      <div className="mt-14 pt-8  text-center text-sm font-medium text-zinc-400">
+      {/* Copyright Divider */}
+      <div className="mt-14 pt-8 border-t border-white/10 text-center text-sm font-medium text-zinc-400 max-w-6xl mx-auto">
         &copy; {new Date().getFullYear()} <strong className="text-white font-bold">Sonsuscato.</strong> | All Rights Reserved.
       </div>
     </footer>
