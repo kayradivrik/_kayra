@@ -1,8 +1,6 @@
-"use client";
-
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Star, GitFork, ExternalLink, FolderGit2, Sparkles, Loader2 } from 'lucide-react';
+import { Star, GitFork, ExternalLink, FolderGit2, Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Repository {
   id: number;
@@ -69,6 +67,8 @@ const LANGUAGE_COLORS: Record<string, string> = {
 export default function ProjectsSection() {
   const [repos, setRepos] = useState<Repository[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchRepos() {
@@ -92,6 +92,31 @@ export default function ProjectsSection() {
 
     fetchRepos();
   }, []);
+
+  const handleScroll = () => {
+    if (!sliderRef.current) return;
+    const { scrollLeft, clientWidth } = sliderRef.current;
+    const index = Math.round(scrollLeft / (clientWidth * 0.8 || 300));
+    setActiveIndex(Math.min(index, repos.length - 1));
+  };
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!sliderRef.current) return;
+    const scrollAmount = sliderRef.current.clientWidth * 0.8 || 320;
+    sliderRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
+  const scrollToRepo = (index: number) => {
+    if (!sliderRef.current) return;
+    const cardWidth = sliderRef.current.clientWidth * 0.8 || 320;
+    sliderRef.current.scrollTo({
+      left: index * cardWidth,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <section className="w-full max-w-5xl mx-auto px-4 py-16 relative z-20">
@@ -127,6 +152,8 @@ export default function ProjectsSection() {
       {!loading && (
         <div className="relative">
           <motion.div
+            ref={sliderRef}
+            onScroll={handleScroll}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
@@ -200,9 +227,39 @@ export default function ProjectsSection() {
             ))}
           </motion.div>
 
-          {/* Mobile Swipe Hint */}
-          <div className="flex md:hidden justify-center items-center gap-1.5 mt-2 text-[11px] font-mono text-zinc-500">
-            <span>← Kaydırmak için sürükleyin →</span>
+          {/* NetworkChuck Style Slider Controls (< ■ ■ ■ >) */}
+          <div className="flex justify-center items-center gap-4 mt-6">
+            <button
+              onClick={() => scroll('left')}
+              className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/[0.08] transition-all active:scale-95"
+              aria-label="Previous Slide"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Dot Indicators */}
+            <div className="flex items-center gap-2">
+              {repos.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => scrollToRepo(idx)}
+                  className={`w-2.5 h-2.5 rounded-sm transition-all duration-300 ${
+                    activeIndex === idx
+                      ? "bg-white scale-110 shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+                      : "bg-zinc-700/80 hover:bg-zinc-500"
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => scroll('right')}
+              className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/[0.08] transition-all active:scale-95"
+              aria-label="Next Slide"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       )}
