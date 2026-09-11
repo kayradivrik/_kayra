@@ -57,8 +57,8 @@ export default function ExperienceSection() {
         </p>
       </motion.div>
 
-      {/* Clean Cards List (No vertical timeline lines or node dots) */}
-      <div className="space-y-6">
+      {/* Clean Cards List (Mobile-Optimized) */}
+      <div className="space-y-4 sm:space-y-6">
         {JOURNEY_DATA.map((item, idx) => (
           <motion.div
             key={item.id}
@@ -66,35 +66,35 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.15 }}
-            className="p-6 sm:p-8 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04] transition-all duration-500"
+            className="p-5 sm:p-8 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04] transition-all duration-500"
           >
             {/* Header Row */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm font-mono text-cyan-300/90 mt-1">
+                <p className="text-xs sm:text-sm font-mono text-cyan-300/90 mt-0.5">
                   {item.subtitle}
                 </p>
               </div>
 
-              <div className="text-xs font-mono text-zinc-400 bg-white/[0.03] border border-white/[0.07] px-3 py-1 rounded-lg self-start sm:self-auto">
+              <div className="text-[11px] sm:text-xs font-mono text-zinc-400 bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-lg self-start sm:self-auto shrink-0 mt-1 sm:mt-0">
                 {item.period}
               </div>
             </div>
 
             {/* Description */}
-            <p className="mt-4 text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
               {item.description}
             </p>
 
-            {/* Minimal Tag Pills (No divider line) */}
-            <div className="mt-5 flex flex-wrap gap-2">
+            {/* Minimal Tag Pills (Compact on mobile) */}
+            <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5 sm:gap-2">
               {item.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 text-[11px] font-mono text-zinc-400 bg-white/[0.03] border border-white/[0.08] rounded-md hover:border-white/20 hover:text-zinc-200 transition-all duration-300"
+                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-[11px] font-mono text-zinc-400 bg-white/[0.03] border border-white/[0.08] rounded-md hover:border-white/20 hover:text-zinc-200 transition-all duration-300"
                 >
                   #{tag}
                 </span>
