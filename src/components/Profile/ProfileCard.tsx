@@ -7,9 +7,24 @@ import Image from "next/image";
 
 const ProfileCard = () => {
   const [mounted, setMounted] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState<string>("https://github.com/kayradivrik.png");
 
   useEffect(() => {
     setMounted(true);
+    async function fetchGithubAvatar() {
+      try {
+        const res = await fetch("https://api.github.com/users/kayradivrik");
+        if (res.ok) {
+          const data = await res.json();
+          if (data.avatar_url) {
+            setAvatarUrl(data.avatar_url);
+          }
+        }
+      } catch (err) {
+        console.warn("GitHub avatar load fallback:", err);
+      }
+    }
+    fetchGithubAvatar();
   }, []);
 
   return (
@@ -39,11 +54,12 @@ const ProfileCard = () => {
           <div className="relative w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-60 lg:h-60 rounded-full p-[3px] bg-gradient-to-b from-white/40 via-white/15 to-white/5 shadow-[0_0_50px_rgba(255,255,255,0.18)] group-hover:shadow-[0_0_70px_rgba(255,255,255,0.3)] transition-all duration-700">
             <div className="w-full h-full rounded-full overflow-hidden bg-black relative">
               <Image
-                src="/profile.jpg"
-                alt="Kayra Divrik"
+                src={avatarUrl}
+                alt="Sonsuscato (Kayra Divrik)"
                 width={240}
                 height={240}
                 priority
+                unoptimized
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
             </div>
