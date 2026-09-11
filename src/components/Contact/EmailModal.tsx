@@ -18,7 +18,7 @@ const EmailModal = ({ isOpen, onClose }: EmailModalProps) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedKey, setCopiedKey] = useState(false);
 
-  const email = "kayradivrik@example.com";
+  const email = "projects.kayra@gmail.com";
   const pgpKey = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 
 xjMEaLVhZxYJKwYBBAHaRw8BAQdAYCbxOK9pqLASi7I2+NKDY+evlLxWml/X
