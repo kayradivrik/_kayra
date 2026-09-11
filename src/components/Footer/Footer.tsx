@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Mail, ArrowUp } from "lucide-react";
+import { Github, Mail, ArrowUp, Instagram } from "lucide-react";
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -81,7 +81,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
           </ul>
         </div>
 
-        {/* Right Column: Follow us / Contact (Large Glowing White Icons) */}
+        {/* Right Column: Follow us / Contact (Large Glowing White & Neon Icons) */}
         <div className="flex flex-col items-start gap-4">
           <h4 className="text-base sm:text-lg font-extrabold text-white tracking-wider uppercase">
             Follow &amp; Contact
@@ -95,6 +95,16 @@ export default function Footer({ onOpenContact }: FooterProps) {
               className="text-white hover:text-cyan-400 hover:scale-110 transition-all duration-200"
             >
               <Github className="w-7 h-7 text-white filter drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
+            </a>
+
+            <a
+              href="https://instagram.com/kayradivrik"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Instagram"
+              className="text-white hover:scale-110 transition-all duration-200 group"
+            >
+              <Instagram className="w-7 h-7 text-pink-400 group-hover:text-pink-300 filter drop-shadow-[0_0_10px_rgba(244,114,182,0.95)]" />
             </a>
 
             <button
