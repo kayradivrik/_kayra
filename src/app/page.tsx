@@ -26,6 +26,28 @@ export default function Home() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const handleScrollTrigger = (e: Event) => {
+      if (!sectionsExpanded) {
+        if ('deltaY' in e && (e as WheelEvent).deltaY > 0) {
+          setSectionsExpanded(true);
+        } else if (window.scrollY > 5) {
+          setSectionsExpanded(true);
+        }
+      }
+    };
+
+    window.addEventListener('wheel', handleScrollTrigger, { passive: true });
+    window.addEventListener('scroll', handleScrollTrigger, { passive: true });
+    window.addEventListener('touchmove', handleScrollTrigger, { passive: true });
+
+    return () => {
+      window.removeEventListener('wheel', handleScrollTrigger);
+      window.removeEventListener('scroll', handleScrollTrigger);
+      window.removeEventListener('touchmove', handleScrollTrigger);
+    };
+  }, [sectionsExpanded]);
+
   const handleToggleExplore = () => {
     if (!sectionsExpanded) {
       setSectionsExpanded(true);
