@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   description: "Kayra Portfolio Website.",
   icons: {
     icon: [
-      { url: "/favicon.png?v=4", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.png?v=5", type: "image/png", sizes: "192x192" },
     ],
-    apple: "/apple-touch-icon.png?v=4",
+    apple: "/apple-touch-icon.png?v=5",
   },
 };
 
