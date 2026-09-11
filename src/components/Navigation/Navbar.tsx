@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Github, Mail, Terminal, Menu, X, Instagram } from "lucide-react";
+import { Github, Menu, X } from "lucide-react";
 
 interface NavbarProps {
   onOpenContact: () => void;
@@ -35,10 +35,11 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-zinc-950/85 backdrop-blur-xl border-b border-white/10 shadow-2xl py-8"
-        : "bg-transparent py-12"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-zinc-950/85 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3.5 sm:py-4"
+          : "bg-transparent py-5 sm:py-6"
+      }`}
     >
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
         {/* Brand / Logo */}
