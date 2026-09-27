@@ -29,7 +29,7 @@ async function getBlogSlugs(): Promise<SanitySlug[]> {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kayradivrik.github.io';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kayradivrik.com.tr';
   const blogPosts = await getBlogSlugs();
 
   const blogUrls: MetadataRoute.Sitemap = blogPosts

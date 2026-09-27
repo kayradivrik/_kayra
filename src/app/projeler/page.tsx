@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Projeler & Açık Kaynak | Kayra Divrik (Sonsuscato)",
     description: "Açık kaynak siber güvenlik, Linux araçları ve sistem yazılımları.",
-    url: "https://kayradivrik.github.io/projeler",
+    url: "https://kayradivrik.com.tr/projeler",
   },
 };
 

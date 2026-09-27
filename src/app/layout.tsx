@@ -12,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kayradivrik.github.io";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kayradivrik.com.tr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

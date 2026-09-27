@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hakkımda | Kayra Divrik (Sonsuscato)",
     description: "Siber güvenlik, Linux sistem mimarisi ve teknik araştırmalar yürüten Kayra Divrik hakkında detaylı bilgi.",
-    url: "https://kayradivrik.github.io/hakkimda",
+    url: "https://kayradivrik.com.tr/hakkimda",
   },
 };
 

@@ -44,7 +44,7 @@ export default function NotFound() {
               <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
             </div>
           </div>
-          <p className="text-zinc-500">$ curl -I https://kayradivrik.github.io/request_target</p>
+          <p className="text-zinc-500">$ curl -I https://kayradivrik.com.tr/request_target</p>
           <p className="text-red-400 mt-1">HTTP/2 404 NOT FOUND</p>
           <p className="text-zinc-400 mt-1">status: route_unreachable</p>
           <p className="text-orange-400 mt-1">&gt; failover recommendation: reroute to index</p>

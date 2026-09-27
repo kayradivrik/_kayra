@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Eğitim & Deneyim | Kayra Divrik (Sonsuscato)",
     description: "Doğuş Üniversitesi Bilgi Güvenliği Teknolojisi ve bilişim sistemleri eğitim geçmişi.",
-    url: "https://kayradivrik.github.io/egitim-ve-deneyim",
+    url: "https://kayradivrik.com.tr/egitim-ve-deneyim",
   },
 };
 

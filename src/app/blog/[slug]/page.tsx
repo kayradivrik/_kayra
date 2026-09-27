@@ -18,7 +18,7 @@ interface SanityPost {
   authorImage?: string;
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kayradivrik.github.io';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kayradivrik.com.tr';
 
 async function getPost(slug: string): Promise<SanityPost | null> {
   try {
