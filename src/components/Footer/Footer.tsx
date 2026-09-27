@@ -1,148 +1,55 @@
-"use client";
+import Link from 'next/link';
+import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 
-import { Github, Mail, ArrowUp, Instagram, Linkedin } from "lucide-react";
-
-interface FooterProps {
-  onOpenContact: () => void;
-}
-
-export default function Footer({ onOpenContact }: FooterProps) {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    } else {
-      scrollToTop();
-    }
-  };
-
+export default function Footer() {
   return (
-    <footer className="w-full bg-[#0d0d0d] border-t border-white/10 relative z-20 text-white pt-16 pb-12 px-6 sm:px-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+    <footer className="w-full bg-white dark:bg-zinc-950 border-t border-gray-100 dark:border-zinc-800 mt-20 transition-colors duration-300">
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Brand */}
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">Kayra Divrik</h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+              Siber güvenlik, Linux sistemleri ve modern web mimarileri üzerine teknik araştırmalar, projeler ve <a href="https://kayradannotlar.com" target="_blank" rel="noopener noreferrer" className="text-orange-500 font-semibold hover:underline">Kayradan Notlar</a>.
+            </p>
+          </div>
 
-        {/* Left Column: Brand Text (No logo icon, Large Bold Font) */}
-        <div className="flex flex-col items-start gap-2">
-          <h3
-            onClick={scrollToTop}
-            className="text-3xl sm:text-4xl font-black tracking-tight text-white cursor-pointer hover:text-cyan-400 transition-colors"
-          >
-            Sonsuscato
-          </h3>
-          <p className="text-sm font-mono font-semibold text-cyan-400 uppercase tracking-widest mt-1">
-            KAYRA DİVRİK
-          </p>
-          <p className="text-sm text-zinc-300 mt-2 max-w-xs leading-relaxed font-normal">
-            Cybersecurity &amp; Linux Systems Engineering portfolio.
-          </p>
-        </div>
+          {/* Navigasyon */}
+          <div>
+            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Site Haritası</h4>
+            <ul className="space-y-2 text-sm text-gray-500">
+              <li><Link href="/" className="hover:text-orange-500 transition-colors">Ana Sayfa</Link></li>
+              <li><Link href="/hakkimda" className="hover:text-orange-500 transition-colors">Hakkımda</Link></li>
+              <li><Link href="/egitim-ve-deneyim" className="hover:text-orange-500 transition-colors">Eğitim & Deneyim</Link></li>
+              <li><Link href="/projeler" className="hover:text-orange-500 transition-colors">Projeler</Link></li>
+            </ul>
+          </div>
 
-        {/* Middle Column: Support & Navigation Links (Large & Readable) */}
-        <div className="flex flex-col items-start gap-4">
-          <h4 className="text-base sm:text-lg font-extrabold text-white tracking-wider uppercase">
-            Navigation
-          </h4>
-          <ul className="flex flex-col gap-3 text-sm sm:text-base font-semibold text-zinc-300">
-            <li>
-              <button
-                onClick={() => scrollToSection("hero")}
-                className="hover:text-white transition-colors text-left"
-              >
-                Home
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => scrollToSection("experience")}
-                className="hover:text-white transition-colors text-left"
-              >
-                Education &amp; Experience
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="hover:text-white transition-colors text-left"
-              >
-                Featured Projects
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={onOpenContact}
-                className="hover:text-white transition-colors text-left"
-              >
-                Contact
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        {/* Right Column: Follow us / Contact (Large Glowing White & Neon Icons) */}
-        <div className="flex flex-col items-start gap-4">
-          <h4 className="text-base sm:text-lg font-extrabold text-white tracking-wider uppercase">
-            Follow &amp; Contact
-          </h4>
-          <div className="flex items-center gap-5 text-white mt-1">
-            <a
-              href="https://github.com/kayradivrik"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="GitHub"
-              className="text-white hover:text-cyan-400 hover:scale-110 transition-all duration-200"
-            >
-              <Github className="w-7 h-7 text-white filter drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
-            </a>
-
-            <a
-              href="https://linkedin.com/in/kayradivrik"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="LinkedIn"
-              className="text-white hover:text-cyan-400 hover:scale-110 transition-all duration-200"
-            >
-              <Linkedin className="w-7 h-7 text-white filter drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
-            </a>
-
-            <a
-              href="https://instagram.com/kayradivrik"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Instagram"
-              className="text-white hover:text-cyan-400 hover:scale-110 transition-all duration-200"
-            >
-              <Instagram className="w-7 h-7 text-white filter drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
-            </a>
-
-            <button
-              onClick={onOpenContact}
-              title="Contact"
-              className="text-white hover:text-cyan-400 hover:scale-110 transition-all duration-200"
-            >
-              <Mail className="w-7 h-7 text-white filter drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
-            </button>
-
-            <button
-              onClick={scrollToTop}
-              title="Back to Top"
-              className="text-white hover:text-cyan-400 hover:scale-110 transition-all duration-200"
-            >
-              <ArrowUp className="w-7 h-7 text-white filter drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
-            </button>
+          {/* İletişim */}
+          <div>
+            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Bağlantılar</h4>
+            <div className="flex space-x-4">
+              <a href="https://github.com/kayradivrik" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors" title="GitHub">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com/in/kayradivrik" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors" title="LinkedIn">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://instagram.com/kayradivrik" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors" title="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="mailto:projects.kayra@gmail.com" className="text-gray-400 hover:text-orange-500 transition-colors" title="Email">
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
 
-      </div>
-
-      {/* Copyright Divider */}
-      <div className="mt-14 pt-8 border-t border-white/10 text-center text-sm font-medium text-zinc-400 max-w-6xl mx-auto">
-        &copy; {new Date().getFullYear()} <strong className="text-white font-bold">Sonsuscato.</strong> | All Rights Reserved.
+        <div className="pt-8 border-t border-gray-100 dark:border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-gray-400 dark:text-gray-500">
+          <p>&copy; {new Date().getFullYear()} Kayra Divrik. Tüm hakları saklıdır.</p>
+          <p>Built with Next.js & TailwindCSS.</p>
+        </div>
       </div>
     </footer>
   );
 }
-
-

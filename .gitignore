@@ -1,3 +1,42 @@
+# ==========================================
+# 🛑 KRİTİK GÜVENLİK & GİZLİLİK (ASLA PUSH'LANMAZ)
+# ==========================================
+.env
+.env*
+*.env
+*.env.*
+*.local
+*.pem
+*.key
+*.cert
+*.secret
+credentials.json
+service-account*.json
+security_audit*.md
+
+# İstisna: Şablon ortam değişkeni dosyası (içinde gerçek anahtar yoktur)
+!.env.example
+
+# ==========================================
+# 📦 BAĞIMLILIKLAR (Dependencies)
+# ==========================================
+node_modules/
+/.pnpm-store
+
+# ==========================================
+# 🏗️ DERLEME VE ÇIKTI DOSYALARI (Build & Next.js)
+# ==========================================
+.next/
+.next-dev/
+dist/
+dist-ssr/
+build/
+out/
+tsconfig.tsbuildinfo
+
+# ==========================================
+# 📝 LOGLAR & DEBUG
+# ==========================================
 logs
 *.log
 npm-debug.log*
@@ -6,22 +45,20 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-.next
-.next-dev
-
-.vscode/*
-!.vscode/extensions.json
-.idea
+# ==========================================
+# 💻 İŞLETİM SİSTEMİ & EDİTÖR ARTIKLARI
+# ==========================================
 .DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-tsconfig.tsbuildinfo
+*.bak

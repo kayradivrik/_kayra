@@ -11,3 +11,5 @@ const nextConfig = (phase) => ({
 });
 
 export default nextConfig;
+
+// Server restart trigger
