@@ -1,6 +1,7 @@
 import Navbar from '../components/Navigation/Navbar';
 import Footer from '../components/Footer/Footer';
 import Link from 'next/link';
+import { FadeIn } from '../components/UI/FadeIn';
 
 interface SanityPost {
   _id: string;
@@ -22,7 +23,7 @@ async function getPosts(): Promise<SanityPost[]> {
     
     if (!projectId) return [];
     
-    const query = encodeURIComponent(`*[_type=="post"] | order(publishedAt desc)[0...5]`);
+    const query = encodeURIComponent(`*[_type=="post"] | order(publishedAt desc)[0...4]`);
     const url = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${query}`;
     
     const res = await fetch(url, { next: { revalidate: 60 } });
@@ -40,90 +41,137 @@ export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <div className="min-h-screen text-gray-800 dark:text-gray-200 font-sans flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-zinc-900 dark:text-zinc-100 selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-900">
       <Navbar />
 
-      <main className="max-w-4xl mx-auto px-6 py-24 sm:py-32 flex-grow w-full">
-        <section id="hero" className="mb-24">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-5 text-gray-900 dark:text-gray-100 tracking-tight">
-            Sonsuscato — Kayra Divrik
-          </h1>
-          <h2 className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mb-8 font-light">
-            Yazılım Geliştirme, Sistem Mühendisliği & Siber Güvenlik
-          </h2>
-          <div className="space-y-6 text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-            <p>
-              Merhaba, ben Kayra. Yazılım geliştirme, gömülü sistemler ve teknolojiyle iç içe bir yolculuğun ortasındayım. Bir yandan modern web teknolojileri (<span className="font-mono text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded text-gray-800 dark:text-gray-200">React</span>, <span className="font-mono text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded text-gray-800 dark:text-gray-200">Next.js</span>, <span className="font-mono text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded text-gray-800 dark:text-gray-200">Node.js</span>) ile projeler inşa ederken, diğer yandan mikrodenetleyiciler ve <span className="font-mono text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded text-gray-800 dark:text-gray-200">C++</span> ile sistemin mutfağında çalışmayı seviyorum.
-            </p>
-            <p>
-              Doğuş Üniversitesi Bilişim Güvenliği Teknolojisi öğrencisiyim; lisede bilişim teknolojileri okudum ve Balparmak'ta IT stajı yaptım. Güvenlik, ağ protokolleri ve Linux sistemlerine olan merakım sayesinde, sistemlerin nasıl çalıştığını en derin seviyede anlamaya ve sağlam mimariler kurmaya odaklanıyorum.
-            </p>
-          </div>
+      <main className="max-w-3xl mx-auto px-6 py-32 sm:py-48 flex-grow w-full">
+        {/* HERO SECTION */}
+        <section id="hero" className="mb-32">
+          <FadeIn delay={0.1}>
+            <h1 className="text-5xl sm:text-7xl font-bold tracking-tighter mb-6">
+              Kayra Divrik.
+            </h1>
+          </FadeIn>
+          
+          <FadeIn delay={0.2}>
+            <h2 className="text-xl sm:text-2xl text-zinc-500 dark:text-zinc-400 font-light tracking-tight mb-8">
+              Systems Engineer & Cybersecurity Researcher
+            </h2>
+          </FadeIn>
+
+          <FadeIn delay={0.3}>
+            <div className="space-y-6 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl font-light">
+              <p>
+                Building secure architectures and exploring the depths of systems. Bridging the gap between modern web technologies and low-level system programming.
+              </p>
+              <p>
+                Currently focused on Linux environments, offensive security, and crafting minimalist digital experiences.
+              </p>
+            </div>
+          </FadeIn>
+          
+          <FadeIn delay={0.4} className="mt-12">
+            <div className="flex items-center gap-6">
+              <Link href="/hakkimda" className="text-sm font-medium border-b border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-white transition-colors pb-1">
+                Hikayemi Oku
+              </Link>
+              <Link href="/projeler" className="text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                Projeler &rarr;
+              </Link>
+            </div>
+          </FadeIn>
         </section>
 
-        {/* Blog Section */}
-        <section id="blog" className="scroll-mt-24">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 border-b pb-4 border-gray-200 dark:border-zinc-800 gap-4">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3">
-              <span className="text-orange-500">#</span> Kayradan Notlar
-            </h2>
-            <a href="https://kayradannotlar.com" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1">
-              kayradannotlar.com'a Git &rarr;
-            </a>
-          </div>
+        {/* BLOG SECTION */}
+        <section id="blog" className="scroll-mt-32">
+          <FadeIn delay={0.1}>
+            <div className="flex items-baseline justify-between mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+                Notlar
+              </h2>
+              <a href="https://kayradannotlar.com" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                Tümünü Gör &rarr;
+              </a>
+            </div>
+          </FadeIn>
 
-          <div className="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border border-gray-200 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-900/30">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Bu portfolyodaki yazılar <a href="https://kayradannotlar.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 dark:text-orange-400 font-medium hover:underline">kayradannotlar.com</a> üzerinden çekilmektedir. Siber güvenlik ve sistem notlarımın tamamı için asıl siteyi ziyaret edebilirsiniz.
-            </p>
-            <a href="https://kayradannotlar.com" target="_blank" rel="noopener noreferrer" className="shrink-0 px-4 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-zinc-700 hover:border-orange-500 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 rounded-lg transition-colors">
-              Siteye Git &rarr;
-            </a>
-          </div>
-          
           {posts.length > 0 ? (
-            <div className="space-y-10">
-              {posts.map((post) => (
-                <Link key={post._id} href={post.slug?.current ? `/blog/${post.slug.current}` : '#'} className="group cursor-pointer flex flex-col md:flex-row md:items-center gap-6 border border-transparent hover:border-gray-100 dark:hover:border-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-900/50 rounded-2xl p-5 -mx-5 transition-all duration-300 relative z-10">
-                  <div className="flex-grow">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2 gap-2">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-orange-600 dark:group-hover:text-orange-500 transition-colors">
+            <div className="space-y-4">
+              {posts.map((post, i) => (
+                <FadeIn key={post._id} delay={0.1 + (i * 0.1)}>
+                  <Link 
+                    href={post.slug?.current ? `/blog/${post.slug.current}` : '#'} 
+                    className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-6 p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950/50 hover:border-orange-500/30 dark:hover:border-orange-500/50 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-orange-500/5"
+                  >
+                    {/* Hover Gradient Background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-transparent to-orange-500/0 group-hover:from-orange-500/5 group-hover:to-transparent transition-all duration-500 z-0"></div>
+                    
+                    <div className="relative z-10 flex-grow space-y-2">
+                      <div className="flex items-center gap-3 mb-1">
+                        {post.category && (
+                          <span className="px-2.5 py-1 text-[10px] font-mono font-medium tracking-widest uppercase bg-zinc-100 dark:bg-zinc-900 text-zinc-500 rounded-md border border-zinc-200/50 dark:border-zinc-800/50">
+                            {post.category}
+                          </span>
+                        )}
+                        <span className="text-xs text-zinc-400 font-mono">
+                          {new Date(post.publishedAt).toLocaleDateString('tr-TR')}
+                        </span>
+                      </div>
+                      
+                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300">
                         {post.title}
                       </h3>
-                      <span className="text-gray-400 dark:text-gray-500 text-sm font-mono shrink-0 flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 group-hover:bg-orange-400 transition-colors"></span>
-                        {new Date(post.publishedAt).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
-                      </span>
+                      
+                      <p className="text-zinc-500 dark:text-zinc-400 font-light line-clamp-2 text-sm leading-relaxed max-w-2xl">
+                        {post.excerpt || "Bu yazıyı okumak için tıklayın..."}
+                      </p>
                     </div>
-                    {post.category && (
-                      <div className="mb-4 flex items-center gap-2 text-xs font-mono font-medium text-orange-600 dark:text-orange-400 uppercase tracking-wider">
-                        <span className="px-2 py-0.5 bg-orange-100 dark:bg-orange-950/30 rounded-md">{post.category}</span>
-                        {post.readTime && <span className="text-gray-400 dark:text-gray-500">• {post.readTime}</span>}
-                      </div>
-                    )}
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2">
-                      {post.excerpt || (post.body && typeof post.body === 'string' ? post.body.substring(0, 150) + '...' : post.title)}
-                    </p>
-                  </div>
-                  {post.imageUrl && (
-                    <div className="shrink-0 w-full md:w-32 h-48 md:h-24 rounded-lg overflow-hidden border border-gray-100 dark:border-zinc-800 bg-gray-100 dark:bg-zinc-900">
-                      <img 
-                        src={post.imageUrl} 
-                        alt={post.title} 
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                      />
+                    
+                    <div className="relative z-10 shrink-0 self-start sm:self-center mt-4 sm:mt-0 w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-all duration-500 group-hover:scale-110">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
                     </div>
-                  )}
-                </Link>
+                  </Link>
+                </FadeIn>
               ))}
             </div>
           ) : (
-            <div className="bg-gray-50 dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-lg p-6 text-gray-600 dark:text-gray-400 italic">
-              Henüz blog yazısı bulunmuyor veya Sanity bağlantısında bir sorun oluştu.
-            </div>
+            <FadeIn delay={0.2}>
+              <div className="py-12 text-zinc-500 italic font-light text-center border border-zinc-100 dark:border-zinc-900 rounded-2xl">
+                Şu an gösterilecek yazı bulunmuyor.
+              </div>
+            </FadeIn>
           )}
+        </section>
+
+        {/* CTA SECTION */}
+        <section className="mt-32 pt-24 pb-12 border-t border-zinc-100 dark:border-zinc-900">
+          <FadeIn delay={0.2}>
+            <div className="flex flex-col items-center text-center">
+              <span className="text-sm font-mono tracking-widest uppercase text-orange-500 mb-6">{"Let's Connect"}</span>
+              <h2 className="text-5xl sm:text-7xl font-bold tracking-tighter mb-8 text-zinc-900 dark:text-white leading-[1.1]">
+                Bir projen mi var?<br/>
+                <span className="text-zinc-400 dark:text-zinc-600">Hadi konuşalım.</span>
+              </h2>
+              <p className="text-lg text-zinc-500 font-light max-w-xl mx-auto mb-12">
+                Siber güvenlik sistemleri, altyapı güçlendirmeleri veya yenilikçi yazılım projeleri için her zaman yeni fırsatlara açığım.
+              </p>
+              
+              <a 
+                href="mailto:projects.kayra@gmail.com"
+                className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-medium text-white bg-zinc-900 dark:text-zinc-900 dark:bg-white rounded-full overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-zinc-900/20 dark:hover:shadow-white/20"
+              >
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-orange-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10 flex items-center gap-3">
+                  Bana Ulaş
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </FadeIn>
         </section>
       </main>
       

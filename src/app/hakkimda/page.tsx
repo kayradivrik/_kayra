@@ -1,84 +1,55 @@
 import type { Metadata } from 'next';
 import Navbar from '../../components/Navigation/Navbar';
 import Footer from '../../components/Footer/Footer';
+import { FadeIn } from '../../components/UI/FadeIn';
+import { StackTools } from '../../components/About/StackTools';
 
 export const metadata: Metadata = {
   title: "Hakkımda",
   description: "Kayra Divrik (Sonsuscato) kimdir? Doğuş Üniversitesi Bilişim Güvenliği öğrencisi, siber güvenlik araştırmacısı ve Linux sistem mühendisi.",
-  alternates: {
-    canonical: "/hakkimda",
-  },
-  openGraph: {
-    title: "Hakkımda | Kayra Divrik (Sonsuscato)",
-    description: "Siber güvenlik, Linux sistem mimarisi ve teknik araştırmalar yürüten Kayra Divrik hakkında detaylı bilgi.",
-    url: "https://kayradivrik.com.tr/hakkimda",
-  },
 };
 
 export default function AboutMe() {
   return (
-    <div className="min-h-screen text-gray-800 dark:text-gray-200 font-sans flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-zinc-900 dark:text-zinc-100 flex flex-col">
       <Navbar />
 
-      <main className="max-w-4xl mx-auto px-6 py-24 sm:py-32 flex-grow w-full">
+      <main className="max-w-3xl mx-auto px-6 py-32 sm:py-48 flex-grow w-full">
         <section id="about">
-          <h1 className="text-3xl font-semibold mb-10 text-gray-900 dark:text-gray-100 border-b pb-3 border-gray-200 dark:border-zinc-800">
-            Hakkımda
-          </h1>
+          <FadeIn delay={0.1}>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tighter mb-12">
+              About.
+            </h1>
+          </FadeIn>
           
-          <div className="flex flex-col md:flex-row gap-10 items-start">
-            {/* Fotoğraf */}
-            <div className="w-full md:w-1/3 shrink-0">
-              <div className="aspect-square relative overflow-hidden rounded-xl bg-gray-100 dark:bg-zinc-800 shadow-sm border border-gray-200 dark:border-zinc-800">
+          <div className="space-y-12">
+            <FadeIn delay={0.2}>
+              <div className="aspect-[21/9] w-full overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-900">
                 <img 
                   src="https://avatars.githubusercontent.com/u/81221998?v=4" 
-                  alt="Kayra Divrik (Sonsuscato)" 
-                  loading="lazy"
-                  decoding="async"
-                  className="object-cover w-full h-full"
+                  alt="Kayra Divrik" 
+                  className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
                 />
               </div>
-            </div>
+            </FadeIn>
 
-            {/* Metin */}
-            <div className="w-full md:w-2/3">
-              <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
-                Sonsuscato — Kayra Divrik
-              </h2>
-              <h3 className="text-lg text-gray-500 dark:text-gray-400 mb-6 font-light">
-                Cybersecurity & Linux Systems Engineer
-              </h3>
-              
-              <div className="space-y-6 text-base leading-relaxed text-gray-700 dark:text-gray-300">
+            <FadeIn delay={0.3}>
+              <div className="space-y-6 text-base sm:text-lg leading-relaxed text-zinc-500 font-light">
                 <p>
-                  Merhaba, ben Kayra. Bilgisayar ağları, sistem güvenliği, sızma testleri ve açık kaynaklı araçlar üzerine odaklanan bir siber güvenlik ve Linux sistem mühendisiyim.
+                  I'm Kayra, a systems engineer and cybersecurity researcher. I spend my time breaking things to understand how they work, and then building them back stronger.
                 </p>
                 <p>
-                  Sistemlerin nasıl çalıştığını en alt seviyeden başlayarak anlamak, güvenlik açıklarını tespit etmek ve altyapıları sağlamlaştırmak en büyük tutkum. C++, Python, Bash gibi dillerle çalışıyor ve Linux tabanlı sistemlerde güvenlik süreçleri tasarlıyorum.
-                </p>
-                <p>
-                  Bu siteyi hem akademik ve profesyonel geçmişimi derlediğim bir portfolyo, hem de edindiğim tecrübeleri, teknik notları ve siber güvenlik alanındaki yazılarımı paylaştığım kişisel bir alan olarak oluşturdum.
+                  My expertise lies at the intersection of low-level system programming (C++, Bash), offensive security, and modern web architectures. I thrive in Linux environments and constantly seek to optimize and secure infrastructures.
                 </p>
               </div>
+            </FadeIn>
 
-              <div className="mt-10 pt-8 border-t border-gray-100 dark:border-zinc-800">
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">İletişim & Sosyal Medya</h4>
-                <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                  <li>
-                    <strong>E-posta:</strong> <a href="mailto:projects.kayra@gmail.com" className="text-orange-600 hover:underline">projects.kayra@gmail.com</a>
-                  </li>
-                  <li>
-                    <strong>GitHub:</strong> <a href="https://github.com/kayradivrik" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:underline">github.com/kayradivrik</a>
-                  </li>
-                  <li>
-                    <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/kayradivrik" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:underline">linkedin.com/in/kayradivrik</a>
-                  </li>
-                  <li>
-                    <strong>Instagram:</strong> <a href="https://instagram.com/kayradivrik" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:underline">instagram.com/kayradivrik</a>
-                  </li>
-                </ul>
+            <FadeIn delay={0.4}>
+              <div className="pt-12 border-t border-zinc-100 dark:border-zinc-900">
+                <h3 className="text-xl font-semibold tracking-tight mb-8">Stack & Tools</h3>
+                <StackTools />
               </div>
-            </div>
+            </FadeIn>
           </div>
         </section>
       </main>

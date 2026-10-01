@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import SecurityShield from "../components/Security/SecurityShield";
 import GitRainBackground from "../components/UI/GitRainBackground";
 import GoogleAnalytics from "../components/Analytics/GoogleAnalytics";
 
-const spaceGrotesk = Space_Grotesk({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-outfit",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kayradivrik.com.tr";
@@ -158,7 +158,7 @@ export default function RootLayout({
         />
         <GoogleAnalytics />
       </head>
-      <body className={`${spaceGrotesk.variable} antialiased bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-orange-500 selection:text-white transition-colors duration-300 relative`}>
+      <body className={`${outfit.variable} font-sans antialiased bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-orange-500 selection:text-white transition-colors duration-300 relative`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SecurityShield />
           <GitRainBackground />
