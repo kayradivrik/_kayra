@@ -74,7 +74,9 @@ export default function ProjectsSection() {
     async function fetchRepos() {
       try {
         setLoading(true);
-        const res = await fetch("https://api.github.com/users/kayradivrik/repos?sort=updated&per_page=6");
+        const res = await fetch("https://api.github.com/users/kayradivrik/repos?sort=updated&per_page=6", {
+          cache: 'no-store'
+        });
         if (!res.ok) throw new Error("GitHub API failed");
         const data: Repository[] = await res.json();
         if (Array.isArray(data) && data.length > 0) {

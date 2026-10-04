@@ -24,7 +24,7 @@ interface GitHubRepo {
 async function getRepos(): Promise<GitHubRepo[]> {
   try {
     const res = await fetch('https://api.github.com/users/kayradivrik/repos?sort=updated&per_page=12', {
-      next: { revalidate: 3600 }
+      cache: 'no-store'
     });
     if (!res.ok) return [];
     const data = await res.json();
