@@ -27,6 +27,8 @@ export default function Navbar() {
     { href: "/hakkimda", label: "About" },
     { href: "/egitim-ve-deneyim", label: "Experience" },
     { href: "/projeler", label: "Projects" },
+    { href: "/blog", label: "Blog" },
+    { href: "/uses", label: "Uses" },
   ];
 
   return (
