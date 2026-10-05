@@ -6,7 +6,6 @@ import { Github, Menu, X, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
-import { CatLogo } from "../UI/CatLogo";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,7 +45,7 @@ export default function Navbar() {
               href="/"
               className="flex items-center group text-left"
             >
-              <CatLogo />
+              <span className="text-xl font-bold tracking-tighter">kd.</span>
             </Link>
 
             <nav className="hidden md:flex items-center space-x-1 bg-zinc-100/50 dark:bg-zinc-900/50 rounded-full px-3 py-1.5 backdrop-blur-sm border border-zinc-200/50 dark:border-zinc-800/50">
@@ -122,7 +121,7 @@ export default function Navbar() {
             className="fixed inset-0 z-[60] bg-white/90 dark:bg-[#0a0a0a]/90 flex flex-col p-6"
           >
             <div className="flex items-center justify-between mb-12 mt-2">
-              <CatLogo />
+              <span className="text-xl font-bold tracking-tighter">kd.</span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
