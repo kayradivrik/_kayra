@@ -11,31 +11,31 @@ export default function Footer() {
               Kayra Divrik.
             </Link>
             <p className="text-sm text-zinc-500 font-light leading-relaxed">
-              Systems engineer exploring cybersecurity, low-level architecture, and minimalist web design.
+              Siber güvenlik, düşük seviye mimari ve minimalist web tasarımı alanında çalışmalar yapan sistem mühendisi.
             </p>
           </div>
 
           <div className="flex gap-12 text-sm">
             <div className="flex flex-col gap-3">
-              <span className="font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">Navigation</span>
-              <Link href="/" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">Home</Link>
-              <Link href="/hakkimda" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">About</Link>
-              <Link href="/projeler" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</Link>
+              <span className="font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">Menü</span>
+              <Link href="/" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">Ana Sayfa</Link>
+              <Link href="/hakkimda" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">Hakkımda</Link>
+              <Link href="/projeler" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">Projeler</Link>
             </div>
             
             <div className="flex flex-col gap-3">
-              <span className="font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">Connect</span>
+              <span className="font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">Bağlantılar</span>
               <a href="https://github.com/kayradivrik" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">GitHub</a>
               <a href="https://linkedin.com/in/kayradivrik" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">LinkedIn</a>
-              <a href="mailto:projects.kayra@gmail.com" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">Email</a>
+              <a href="mailto:projects.kayra@gmail.com" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">E-posta</a>
             </div>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-400 font-light">
-          <p>&copy; {new Date().getFullYear()} Kayra Divrik. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Kayra Divrik. Tüm hakları saklıdır.</p>
           <p className="flex items-center gap-1">
-            Crafted with <span className="font-mono">Next.js</span> & <span className="font-mono">Framer Motion</span>
+            <span className="font-mono">Next.js</span> & <span className="font-mono">Framer Motion</span> ile hazırlandı
           </p>
         </div>
       </div>

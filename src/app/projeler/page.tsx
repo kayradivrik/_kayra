@@ -56,10 +56,10 @@ export default async function Projects() {
         <section id="projects">
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tighter mb-6">
-              Projects.
+              Projeler.
             </h1>
             <p className="text-lg text-zinc-500 font-light mb-16 max-w-2xl">
-              Open-source tools, system architecture experiments, and cybersecurity research directly from GitHub.
+              GitHub üzerinden açık kaynaklı araçlar, sistem mimarisi deneyleri ve siber güvenlik araştırmaları.
             </p>
           </FadeIn>
           
@@ -78,7 +78,7 @@ export default async function Projects() {
                         {repo.name}
                       </h3>
                       <p className="text-sm text-zinc-500 font-light leading-relaxed flex-grow line-clamp-3 mb-6">
-                        {repo.description || "No description provided."}
+                        {repo.description || "Açıklama bulunmuyor."}
                       </p>
                       
                       <div className="flex items-center gap-4 text-xs font-mono text-zinc-400 mt-auto pt-4 border-t border-zinc-100 dark:border-zinc-900">
@@ -100,7 +100,7 @@ export default async function Projects() {
           ) : (
             <FadeIn delay={0.3}>
               <div className="p-8 text-center text-zinc-500 font-light border border-zinc-200 dark:border-zinc-900 rounded-2xl">
-                No repositories found.
+                Depo bulunamadı.
               </div>
             </FadeIn>
           )}

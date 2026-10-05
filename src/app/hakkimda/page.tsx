@@ -18,7 +18,7 @@ export default function AboutMe() {
         <section id="about">
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tighter mb-12">
-              About.
+              Hakkımda.
             </h1>
           </FadeIn>
           
@@ -36,17 +36,17 @@ export default function AboutMe() {
             <FadeIn delay={0.3}>
               <div className="space-y-6 text-base sm:text-lg leading-relaxed text-zinc-500 font-light">
                 <p>
-                  I'm Kayra, a systems engineer and cybersecurity researcher. I spend my time breaking things to understand how they work, and then building them back stronger.
+                  Ben Kayra, sistem mühendisi ve siber güvenlik araştırmacısıyım. Vaktimi sistemlerin nasıl çalıştığını anlamak için onları kırarak ve sonra daha güçlü bir şekilde yeniden inşa ederek geçiriyorum.
                 </p>
                 <p>
-                  My expertise lies at the intersection of low-level system programming (C++, Bash), offensive security, and modern web architectures. I thrive in Linux environments and constantly seek to optimize and secure infrastructures.
+                  Uzmanlığım düşük seviyeli sistem programlama (C++, Bash), ofansif güvenlik ve modern web mimarilerinin kesişiminde yer alıyor. Linux ortamlarında çalışmayı seviyor, altyapıları optimize etmek ve güvence altına almak için sürekli yeni yollar arıyorum.
                 </p>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.4}>
               <div className="pt-12 border-t border-zinc-100 dark:border-zinc-900">
-                <h3 className="text-xl font-semibold tracking-tight mb-8">Stack & Tools</h3>
+                <h3 className="text-xl font-semibold tracking-tight mb-8">Teknolojiler & Araçlar</h3>
                 <StackTools />
               </div>
             </FadeIn>

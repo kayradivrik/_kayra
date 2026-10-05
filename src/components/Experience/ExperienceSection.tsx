@@ -17,20 +17,20 @@ interface JourneyItem {
 const JOURNEY_DATA: JourneyItem[] = [
   {
     id: 1,
-    period: "2024 — 2026 (Present)",
+    period: "2024 — 2026 (Günümüz)",
     isCurrent: true,
-    title: "Dogus University",
-    subtitle: "Information Security & Technologies",
-    description: "Undergraduate studies focused on system security, penetration testing, network protocols, cyber defense architectures, and malware analysis.",
+    title: "Doğuş Üniversitesi",
+    subtitle: "Bilişim Güvenliği Teknolojisi",
+    description: "Sistem güvenliği, sızma testleri, ağ protokolleri, siber savunma mimarileri ve zararlı yazılım analizi odaklı önlisans eğitimi.",
     tags: ["Information Security", "Penetration Testing", "Network Security", "Linux Hardening", "Cryptography"]
   },
   {
     id: 2,
     period: "2020 — 2024",
     isCurrent: false,
-    title: "Madenler Vocational High School",
-    subtitle: "Information Technology Department",
-    description: "Foundational technical education covering software development fundamentals, database management, C++ programming, and computer network infrastructure.",
+    title: "Madenler Mesleki ve Teknik Anadolu Lisesi",
+    subtitle: "Bilişim Teknolojileri Alanı",
+    description: "Yazılım geliştirme temelleri, veritabanı yönetimi, C++ programlama ve bilgisayar ağı altyapısını kapsayan temel teknik eğitim.",
     tags: ["Information Technology", "C++ Programming", "Network Systems", "Databases"]
   }
 ];
@@ -75,10 +75,10 @@ export default function ExperienceSection() {
         className="flex flex-col items-center text-center mb-10"
       >
         <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Academic Background
+          Akademik Geçmiş
         </h2>
         <p className="mt-2 text-xs sm:text-sm text-zinc-400 max-w-md">
-          My academic roadmap and specialization steps in IT &amp; Cybersecurity.
+          Bilişim ve Siber Güvenlik alanındaki akademik yol haritam ve uzmanlaşma adımlarım.
         </p>
       </motion.div>
 

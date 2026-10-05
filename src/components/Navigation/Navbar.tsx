@@ -22,12 +22,12 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/hakkimda", label: "About" },
-    { href: "/egitim-ve-deneyim", label: "Experience" },
-    { href: "/projeler", label: "Projects" },
+    { href: "/", label: "Ana Sayfa" },
+    { href: "/hakkimda", label: "Hakkımda" },
+    { href: "/egitim-ve-deneyim", label: "Deneyim" },
+    { href: "/projeler", label: "Projeler" },
     { href: "/blog", label: "Blog" },
-    { href: "/uses", label: "Uses" },
+    { href: "/uses", label: "Kullandıklarım" },
   ];
 
   return (

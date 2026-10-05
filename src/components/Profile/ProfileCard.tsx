@@ -91,7 +91,7 @@ const ProfileCard = ({ onOpenContact, onExploreClick, isExpanded }: ProfileCardP
         transition={{ duration: 0.6, delay: 0.3 }}
         className="text-lg sm:text-xl text-zinc-300 font-medium leading-relaxed tracking-wide mb-8 max-w-lg"
       >
-        Cybersecurity &amp; Linux Systems Engineer
+        Siber Güvenlik &amp; Linux Sistem Mühendisi
       </motion.div>
 
       {/* Action Buttons Row */}
@@ -109,7 +109,7 @@ const ProfileCard = ({ onOpenContact, onExploreClick, isExpanded }: ProfileCardP
             className="flex items-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 bg-white text-black font-bold rounded-2xl text-sm sm:text-base hover:bg-white/90 transition-all duration-300 shadow-2xl"
           >
             <MdMailOutline size={20} />
-            <span>Contact</span>
+            <span>İletişim</span>
           </motion.button>
         )}
 

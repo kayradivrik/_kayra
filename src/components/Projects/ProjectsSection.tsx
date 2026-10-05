@@ -132,10 +132,10 @@ export default function ProjectsSection() {
       >
         <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Featured Works
+            Öne Çıkan Çalışmalar
           </h2>
           <p className="mt-2 text-sm sm:text-base text-zinc-400 max-w-lg">
-            Live open-source repositories and tools fetched directly from GitHub.
+            GitHub üzerinden doğrudan çekilen canlı açık kaynak depoları ve araçlar.
           </p>
         </div>
 
@@ -187,7 +187,7 @@ export default function ProjectsSection() {
       {loading && (
         <div className="flex flex-col items-center justify-center py-16 text-zinc-400 gap-3">
           <Loader2 className="w-8 h-8 animate-spin text-white" />
-          <span className="text-sm font-medium">Fetching GitHub repositories...</span>
+          <span className="text-sm font-medium">GitHub depoları yükleniyor...</span>
         </div>
       )}
 
@@ -242,7 +242,7 @@ export default function ProjectsSection() {
 
                   {/* Description */}
                   <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed line-clamp-3">
-                    {repo.description || "No description provided."}
+                    {repo.description || "Açıklama bulunmuyor."}
                   </p>
                 </div>
 
@@ -251,7 +251,7 @@ export default function ProjectsSection() {
                   {/* Language Tag */}
                   <div className="flex items-center gap-2">
                     <span className={`w-2.5 h-2.5 rounded-full ${repo.language ? LANGUAGE_COLORS[repo.language] || "bg-zinc-400" : "bg-zinc-400"}`} />
-                    <span className="font-medium text-zinc-300">{repo.language || "Code"}</span>
+                    <span className="font-medium text-zinc-300">{repo.language || "Kod"}</span>
                   </div>
 
                   {/* Stars & Forks */}
@@ -286,7 +286,7 @@ export default function ProjectsSection() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] hover:border-white/20 text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white transition-all duration-300 shadow-lg"
         >
-          <span>View All Repositories on GitHub (@kayradivrik)</span>
+          <span>Tüm Depoları GitHub'da Görüntüle (@kayradivrik)</span>
           <ExternalLink className="w-4 h-4" />
         </a>
       </motion.div>

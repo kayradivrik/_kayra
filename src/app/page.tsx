@@ -55,17 +55,17 @@ export default async function Home() {
           
           <FadeIn delay={0.2}>
             <h2 className="text-xl sm:text-2xl text-zinc-500 dark:text-zinc-400 font-light tracking-tight mb-8">
-              Systems Engineer & Cybersecurity Researcher
+              Sistem Mühendisi & Siber Güvenlik Araştırmacısı
             </h2>
           </FadeIn>
 
           <FadeIn delay={0.3}>
             <div className="space-y-6 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl font-light">
               <p>
-                Building secure architectures and exploring the depths of systems. Bridging the gap between modern web technologies and low-level system programming.
+                Güvenli mimariler kuruyor ve sistemlerin derinliklerini keşfediyorum. Modern web teknolojileri ile düşük seviyeli sistem programlama arasındaki köprüyü oluşturuyorum.
               </p>
               <p>
-                Currently focused on Linux environments, offensive security, and crafting minimalist digital experiences.
+                Şu sıralar Linux ortamlarına, ofansif güvenliğe ve minimalist dijital deneyimler üretmeye odaklanıyorum.
               </p>
             </div>
           </FadeIn>
@@ -149,7 +149,7 @@ export default async function Home() {
         <section className="mt-32 pt-24 pb-12 border-t border-zinc-100 dark:border-zinc-900">
           <FadeIn delay={0.2}>
             <div className="flex flex-col items-center text-center">
-              <span className="text-sm font-mono tracking-widest uppercase text-orange-500 mb-6">{"Let's Connect"}</span>
+              <span className="text-sm font-mono tracking-widest uppercase text-orange-500 mb-6">{"İletişime Geçelim"}</span>
               <h2 className="text-5xl sm:text-7xl font-bold tracking-tighter mb-8 text-zinc-900 dark:text-white leading-[1.1]">
                 Bir projen mi var?<br/>
                 <span className="text-zinc-400 dark:text-zinc-600">Hadi konuşalım.</span>
