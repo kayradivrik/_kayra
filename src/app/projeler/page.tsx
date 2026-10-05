@@ -23,10 +23,21 @@ interface GitHubRepo {
 
 async function getRepos(): Promise<GitHubRepo[]> {
   try {
+    const headers: HeadersInit = {};
+    if (process.env.GITHUB_TOKEN) {
+      headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+    }
+
     const res = await fetch('https://api.github.com/users/kayradivrik/repos?sort=updated&per_page=12', {
+      headers,
       cache: 'no-store'
     });
-    if (!res.ok) return [];
+    
+    if (!res.ok) {
+      console.error('GitHub API error:', res.status, res.statusText);
+      return [];
+    }
+    
     const data = await res.json();
     return data.filter((repo: any) => !repo.fork);
   } catch (error) {
