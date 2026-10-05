@@ -84,9 +84,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.png?v=6", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.png?v=7", type: "image/png", sizes: "192x192" },
     ],
-    apple: "/apple-touch-icon.png?v=6",
+    apple: "/apple-touch-icon.png?v=7",
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "yLlKYDdKAqjl4RqIg_X2q6fNvFiN2_rcwq5FuDP6Ozk",
