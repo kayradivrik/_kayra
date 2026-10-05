@@ -29,8 +29,7 @@ async function getRepos(): Promise<GitHubRepo[]> {
     }
 
     const res = await fetch('https://api.github.com/users/kayradivrik/repos?sort=updated&per_page=12', {
-      headers,
-      cache: 'no-store'
+      headers
     });
     
     if (!res.ok) {
